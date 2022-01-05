@@ -50,7 +50,7 @@ let Animation2DArray = [
         name: 'Galactic Swirl',
         path: '/animation-2d/galactic-swirl',
         image: GSImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'This 2d animation consists of a black canvas and multiple particles. The particle uses a selection of colours from an array. The particles are randomly placed within the canvas area and are set on rotation. Math.random() multiplied by 2*Math.PI sets the movement on a circle and each frame is updated by adding 0.01 to this value. To ensure the particles go beyond the visible canvas, extra width is added to all sides. The alpha value for the black background colour decreases with and a mouseDown event and increases with a mouseUp event. This gives the effect of a trail behind each particle.'
     },
     {
         id: 6,
