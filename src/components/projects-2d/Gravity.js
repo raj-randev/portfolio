@@ -24,6 +24,11 @@ const Gravity = () => {
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
       
+
+      /**
+       * Resize function & Reinitialise
+       */
+
       const handleResize = () => {
 
         canvas.width  = window.innerWidth;
@@ -32,6 +37,11 @@ const Gravity = () => {
         init();
 
       }
+
+
+      /**
+       * Animate Function
+       */
 
       const animate = () => {
 
@@ -47,6 +57,7 @@ const Gravity = () => {
         
       }
 
+      //Array of colours to choose from
       let colors = [
 
         '#2185C5', 
@@ -56,12 +67,20 @@ const Gravity = () => {
   
       ]
   
+      //Gravity to a constant
       let gravity = 1;
   
+      //Friction set as a fraction: it is maultiplied by the speed each time to casue an eventual stop
       let friction = 0.9;
   
+      //Array for the balls to live in
       let ballArray;
   
+
+      /**
+       * Ball Class Constructor
+       */
+
       class Ball {
   
         constructor(x, y, dx, dy, radius, color, strkColor) {
@@ -76,24 +95,30 @@ const Gravity = () => {
       
           this.update = () => {
       
+            //Controls the up and down movement of the ball
             if (this.y + this.radius + this.dy > canvas.height) {
-              this.dy = -this.dy * friction; 
+              this.dy = -this.dy * friction;//instructs the ball's height and speed of ascent: Gets smaller with each bounce 
             } else {
-              this.dy += gravity; 
+              this.dy += gravity; //instructs the ball on descent
             }
       
+            //Controls the side to side movement of the ball
             if (this.x + this.radius + this.dx > canvas.width || this.x - this.radius <= 0) {
               this.dx = -this.dx * friction; 
             }
       
+            //x-asis(position + velocity)
             this.x += this.dx;
       
+            //y-axis(position + velocity)
             this.y += this.dy;
       
+            //draws the ball
             this.draw();
   
           };
       
+          //istructions on building the ball
           this.draw = () => {
   
             c.beginPath();
@@ -115,6 +140,7 @@ const Gravity = () => {
         ballArray = [];
         
         if (canvas.width <= 400) {
+          //Indicates the number of ball wanted on the screen
           for (let i = 0; i < 50; i++) {
   
             let radius = randomIntFromRange(10, 25);
@@ -143,6 +169,11 @@ const Gravity = () => {
         }
 
       }
+
+      
+      /**
+       * Event Listeners
+       */
 
       window.addEventListener('resize', handleResize);
       canvas.addEventListener('click', handleResize);

@@ -57,7 +57,7 @@ let Animation2DArray = [
         name: 'Interactive Balls',
         path: '/animation-2d/interactive-balls',
         image: IBImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'This 2d animation contains an array of colours, a function to state the size of the particles between a certain range and instructions on the movement of each particle. On hover, any particle that is within a 50px radius increases its size to 200px in diameter.'
     },
     {
         id: 7,
