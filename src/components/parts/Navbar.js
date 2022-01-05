@@ -26,7 +26,7 @@ const Navbar = ({navClass, toggleMenu}) => {
                 <div className='navList'>
                     <ul>
                         <li key={4}><a href='https://github.com/raj-randev' target='_blank' rel="noreferrer" className='navButton'><FontAwesomeIcon style={{fontSize: '40px'}} color='#ffffff' icon={faGithub}/> <p>Github</p></a></li>
-                        <li key={5}><a href='https://www.linkedin.com/in/rajan-randev-86449555/' target='_blank' rel="noreferrer" className='navButton'><FontAwesomeIcon style={{fontSize: '40px'}} color='#ffffff' icon={faLinkedin}/> <p>LinkedIn</p></a></li>
+                        <li key={5}><a href='www.linkedin.com/in/rajan-randev' target='_blank' rel="noreferrer" className='navButton'><FontAwesomeIcon style={{fontSize: '40px'}} color='#ffffff' icon={faLinkedin}/> <p>LinkedIn</p></a></li>
                     </ul>
                 </div>
             </div>
