@@ -33,7 +33,7 @@ const FoxBody = () => {
     
     useEffect(() => {
 
-        new GLTFLoader().load('https://raj-ran.dev/models/Fox/glTF-Binary/Fox.glb', setModel)
+        new GLTFLoader().load('https://github.com/raj-randev/portfolio/blob/main/public/models/Fox/glTF/Fox.gltf', setModel)
 
     }, [setModel]);
         
