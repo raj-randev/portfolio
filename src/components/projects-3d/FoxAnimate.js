@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import { useControls, folder, Leva } from 'leva';
 import Animation3DArray from '../database/Animation3DArray';
 import Info from '../parts/Info';
+import MODEL from './models-3d/Fox.glb';
 
 extend({OrbitControls});
 
@@ -33,7 +34,7 @@ const FoxBody = () => {
     
     useEffect(() => {
 
-        new GLTFLoader().load('https://www.raj-ran.dev/Fox.glb', setModel)
+        new GLTFLoader().load( MODEL, setModel)
 
     }, [setModel]);
         
