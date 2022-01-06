@@ -35,7 +35,7 @@ const FoxBody = () => {
 
         new GLTFLoader().load('/models/Fox/glTF/Fox.gltf', setModel)
 
-    }, []);
+    }, [setModel]);
         
     return model ? <primitive 
         object={model.scene} 
