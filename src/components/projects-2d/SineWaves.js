@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-//import { GUI } from 'dat.gui'
 import Animation2DArray from '../database/Animation2DArray';
 import Info from '../parts/Info';
 
@@ -9,16 +8,18 @@ const SineWaves = () => {
 
     useEffect(() =>{
 
-      //const gui = new GUI()
-      //gui.close();
-
       let canvas = canvasRef.current;
       
       let c = canvas.getContext('2d');
 
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
+     
       
+      /**
+       * Resize & Reinitialise
+       */
+
       const handleResize = () => {
 
         canvas.width  = window.innerWidth;
@@ -26,6 +27,7 @@ const SineWaves = () => {
 
       }
       
+      //Wave Properties
       const wave = {
 
         y: canvas.height /2,
@@ -35,13 +37,7 @@ const SineWaves = () => {
 
       }
 
-      //const waveFolder = gui.addFolder('Wave')
-      //waveFolder.add(wave, 'y', 0, canvas.height);
-      //waveFolder.add(wave, 'length', -0.01, 0.01);
-      //waveFolder.add(wave, 'amplitude', -300, 300);
-      //waveFolder.add(wave, 'frequency', -0.01, 1);
-      //waveFolder.open()
-
+      //Color Properties
       const strokeColor = {
 
         h:94,
@@ -49,13 +45,8 @@ const SineWaves = () => {
         l:35
 
       }
-      
-      //const strokeFolder = gui.addFolder('Stroke')
-      //strokeFolder.add(strokeColor, 'h', 0, 225);
-      //strokeFolder.add(strokeColor, 's', 0, 100);
-      //strokeFolder.add(strokeColor, 'l', 0, 100);
-      //strokeFolder.open()
 
+      //Background Color
       const background = {
 
         r:0,
@@ -64,15 +55,13 @@ const SineWaves = () => {
         a:0.15
 
       }
-  
-      //const backgroundFolder = gui.addFolder('Background')
-      //backgroundFolder.add(background, 'r', 0, 255);
-      //backgroundFolder.add(background, 'g', 0, 255);
-      //backgroundFolder.add(background, 'b', 0, 255);
-      //backgroundFolder.add(background, 'a', 0, 1);
-      //backgroundFolder.open();
 
       let increment = wave.frequency
+
+
+      /**
+       * Animate Function
+       */
 
       const animate = () => {
 
@@ -84,6 +73,7 @@ const SineWaves = () => {
         
         c.beginPath();
 
+        //Starts line from the center of the height of the canvas
         c.moveTo(0, canvas.height / 2);
       
         for (let i = 0; i < canvas.width; i++){
@@ -92,6 +82,7 @@ const SineWaves = () => {
 
         }
       
+        //Color of line
         c.strokeStyle = `hsl(${strokeColor.h * Math.sin(increment)}, ${strokeColor.s}%, ${strokeColor.l}%)`;
 
         c.stroke();
@@ -99,6 +90,11 @@ const SineWaves = () => {
         increment += wave.frequency;
 
       }
+      
+
+      /**
+       * Event Listeners
+       */
       
       window.addEventListener('resize', handleResize);
       
@@ -116,7 +112,7 @@ const SineWaves = () => {
 
         <canvas ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[0].description} />
+        <Info text={Animation2DArray[9].description} />
 
       </div>
 

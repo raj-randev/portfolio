@@ -7,6 +7,11 @@ const RepelParticles = () => {
     
     const canvasRef = useRef(null);
 
+
+    /**
+     * Leva Control Panel
+     */
+
     const { bgRepP } = useControls('Control Panel',{ 
 
       bgRepP: { value: '#000000', label: 'Background Color' },
@@ -22,6 +27,11 @@ const RepelParticles = () => {
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
       
+
+      /**
+       * Resize & Reinitialise function
+       */
+
       const handleResize = () => {
 
         canvas.width  = window.innerWidth;
@@ -31,6 +41,11 @@ const RepelParticles = () => {
 
       }
       
+
+      /**
+       * Mouse Move Function
+       */
+
       const mouseMove = (event) => {
 
         mouse.x = event.x;
@@ -38,11 +53,22 @@ const RepelParticles = () => {
 
       }
       
+
+      /**
+       * Animate Function
+       */
+
       const animate = () => {
 
         c.clearRect(0, 0, canvas.width, canvas.height);
 
         for (let i = 0; i < particleArray.length; i++) {
+
+          if (canvas.width < 400) {
+            mouse.radius = 100;
+          } else {
+            mouse.radius =250;
+          }
 
           particleArray[i].draw();
           particleArray[i].update();
@@ -52,15 +78,24 @@ const RepelParticles = () => {
         requestAnimationFrame(animate);
 
       }
+
+      //Empty Array declaration
       let particleArray = [];
 
+      //Container to record mouse x & y coordinates and specify a radius
       const mouse = {
 
         x: null,
         y: null,
-        radius: 250
+        radius: undefined
 
       }
+
+      
+
+      /**
+       * Particle Class Constructor
+       */
 
       class Particle {
 
@@ -87,12 +122,18 @@ const RepelParticles = () => {
     
         update() {
 
+          //Mouse position - particle position
           let dx = mouse.x - this.x;
           let dy = mouse.y - this.y;
+
+          //Hypotenuse 
           let distance = Math.sqrt(dx * dx + dy * dy)
+
           let forceDirectionX = dx / distance;
           let forceDirectionY = dy / distance;
           let maxDistance = mouse.radius;
+
+          //Pushes particles to the circumference 
           let force = (maxDistance - distance) / maxDistance;
           let directionX = forceDirectionX * force * this.density;
           let directionY = forceDirectionY * force * this.density;
@@ -128,6 +169,7 @@ const RepelParticles = () => {
 
         particleArray = [];
     
+        //Creating 1500 circles using a for loop
         for (let i = 0; i < 1500; i++){
 
           let x = Math.random() * canvas.width;
@@ -138,6 +180,11 @@ const RepelParticles = () => {
         }
         
       }
+
+
+      /**
+       * Event Listeners
+       */
 
       window.addEventListener('resize', handleResize);
       window.addEventListener('mousemove', mouseMove);
@@ -160,7 +207,7 @@ const RepelParticles = () => {
 
         <canvas style={{backgroundColor: bgRepP }} ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[0].description} />
+        <Info text={Animation2DArray[8].description} />
 
         <Leva collapsed={true}/>
 

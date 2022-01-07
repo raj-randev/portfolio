@@ -71,14 +71,14 @@ let Animation2DArray = [
         name: 'Repel Particles',
         path: '/animation-2d/repel-particles',
         image: RPPImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'For this 2d animation, I have placed 1500 particles randomly between the canvas\'s width and height. I\’ve stored the current x and y values for the mouse in a variable and use a mouse move event listener to update that value. In order to produce the repel action, the mouse has a radius of 250px and the particles move at different speeds to reach the circumference of the circle.'
     },
     {
         id: 9,
         name: 'Sine Waves',
         path: '/animation-2d/sine-waves',
         image: SWImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'For this 2d animation, we start off with a lineTo line from the halfway point of the canvas height that goes the width of the canvas. In order to give the line a wave, we need to effect each pixel of the line. We can do this by running the lineTo through a for loop by the width of the canvas. We then multiply the start point by Math.sin() over every iteration and this produces a tight and small wavy line. In order to make our wave bigger in length, we add { i * wave.length } argument the  Math.sin() function. We add an increment value inside of the argument and this give the wave horizontal movement on each frame of animation. To give the wave height, we multiply everything by a wave.amplitude variable. Finally, In order to give the wave dynamic movement, we multiply everything by Math.sin(increment). The whole equation looks like this { c.lineTo(i, wave.y + Math.sin(i * wave.length + increment) * wave.amplitude * Math.sin(increment));}'
     }
 ]
 
