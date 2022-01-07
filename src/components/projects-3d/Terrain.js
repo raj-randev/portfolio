@@ -99,7 +99,7 @@ const Terrain = () => {
 
         <div className='project'>
             <div className='pageTitle'>
-                <h1 style={{color: '#ffffff'}}>{Animation3DArray[7].name}</h1>
+                <h1 style={{color: '#ffffff'}}>{Animation3DArray[6].name}</h1>
             </div>
 
             <Canvas 
@@ -130,7 +130,7 @@ const Terrain = () => {
 
             <Leva collapsed={true}/>
 
-            <Info text={Animation3DArray[7].description} />
+            <Info text={Animation3DArray[6].description} />
 
         </div>
 

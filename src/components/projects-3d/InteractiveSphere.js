@@ -220,6 +220,10 @@ const InertactiveSphere = () => {
                 
             </Canvas>
 
+            <Leva collapsed={true}/>
+
+            <Info text={Animation3DArray[1].description} />
+
         </div>
     )
 }

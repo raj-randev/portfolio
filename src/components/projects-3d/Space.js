@@ -236,7 +236,7 @@ const Space = () => {
         <div className='project'>
 
             <div className='pageTitle'>
-                <h1 style={{color: '#ffffff'}}>{Animation3DArray[6].name}</h1>
+                <h1 style={{color: '#ffffff'}}>{Animation3DArray[5].name}</h1>
             </div>
 
             <Canvas style={{backgroundColor: '#000000'}} camera={{ position: [0, 0, 20] }}>
@@ -253,7 +253,7 @@ const Space = () => {
 
             <Leva collapsed={true}/>
 
-            <Info text={Animation3DArray[6].description} />
+            <Info text={Animation3DArray[5].description} />
             
         </div>
   );

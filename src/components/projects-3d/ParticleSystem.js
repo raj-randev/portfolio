@@ -176,7 +176,7 @@ const ParticleSystem = () => {
         <div className='project'>
 
             <div className='pageTitle'>
-                    <h1 style={{color: '#ffffff'}}>{Animation3DArray[3].name}</h1>
+                    <h1 style={{color: '#ffffff'}}>{Animation3DArray[2].name}</h1>
             </div>
 
             <Canvas style={{backgroundColor: backgroundColorThree}}>
@@ -190,7 +190,7 @@ const ParticleSystem = () => {
 
             <Leva collapsed={true}/>
 
-            <Info text={Animation3DArray[3].description} />
+            <Info text={Animation3DArray[2].description} />
 
         </div>    
     )
