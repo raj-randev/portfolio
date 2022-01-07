@@ -22,6 +22,11 @@ const RainbowParticles = () => {
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
       
+
+      /**
+       * Resize & Reinitialise function
+       */
+
       const handleResize = () => {
 
         canvas.width  = window.innerWidth;
@@ -29,11 +34,17 @@ const RainbowParticles = () => {
 
       }
 
+
+      /**
+       * Mouse Click function
+       */
+
       const mouseClick = (event) => {
 
         mouse.x = event.x;
         mouse.y = event.y;
     
+        //Creates 5 particles on a mouse click
         for (let i = 0; i < 5; i++) {
 
           particleArray.push(new Particle());
@@ -42,11 +53,17 @@ const RainbowParticles = () => {
 
       }
       
+
+      /**
+       * Mouse Move function
+       */
+
       const mouseMove = (event) => {
 
         mouse.x = event.x;
         mouse.y = event.y;
         
+        //Creates 2 particles on the mouse moving
         for (let i = 0; i < 2; i++) {
 
           particleArray.push(new Particle());
@@ -55,6 +72,10 @@ const RainbowParticles = () => {
 
       }
       
+
+      /**
+       * Animate Function
+       */
 
       const animate = () => {
 
@@ -68,10 +89,13 @@ const RainbowParticles = () => {
 
       }
 
+      //Empty Array for Particles
       const particleArray = [];
 
+      //First value in HUE Colour
       let hue = 0;
 
+      //Container to record mouse's X and Y coordinates
       const mouse = {
 
         x: undefined,
@@ -79,25 +103,43 @@ const RainbowParticles = () => {
 
       }
 
+
+      /**
+       * Particle Class Constructor
+       */
+
       class Particle {
 
         constructor(){
 
             this.x = mouse.x;
             this.y = mouse.y;
+
+            //Size between 1-15px 
             this.size = Math.random() * 15 + 1;
+
+            //Returns a postive or negative(allow left or right movement)
             this.speedX = Math.random() * 3 - 1.5;
+
+            //Returns a postive or negative(allow up or down movement)
             this.speedY = Math.random() * 3 - 1.5;
+
+            //Hue variable changes giving the rainbow effect
             this.color = `hsl(${hue}, 100%, 50%)`;
 
         }
     
+        //Updates the speed, direction and size of the Particle
         update = () => {
 
-            this.x += this.speedX;
-            this.y += this.speedY;
+          //Adds direction and velocity to the x-axis
+          this.x += this.speedX;
 
-            if (this.size > 0.2) this.size -=0.05;
+          //Adds direction and velocity to the y-axis
+          this.y += this.speedY;
+
+          //Reduces the size of each particle until it disappears
+          if (this.size > 0.2) this.size -=0.05;
 
         }
     
@@ -125,8 +167,10 @@ const RainbowParticles = () => {
                 const dx = particleArray[i].x - particleArray[j].x;
                 const dy = particleArray[i].y - particleArray[j].y;
 
+                //work out hypotinuse between neighboring particles
                 const hypDistance = Math.sqrt((dx*dx) + (dy*dy));
 
+                //Add line to adjoining particle if hypotinuse is <= 100px
                 if (hypDistance < 100) {
 
                     c.beginPath();
@@ -141,6 +185,7 @@ const RainbowParticles = () => {
 
             }
 
+            //If the particle is smaller than 0.3, remoev from the particle array
             if (particleArray[i].size <= 0.3) {
 
                 particleArray.splice(i, 1);
@@ -153,6 +198,12 @@ const RainbowParticles = () => {
 
       }
       
+
+      /**
+       * Event Listeners
+       */
+      
+
       window.addEventListener('resize', handleResize);
       window.addEventListener('mousemove', mouseMove);
       window.addEventListener('click', mouseClick);
@@ -171,7 +222,7 @@ const RainbowParticles = () => {
 
         <canvas style={{backgroundColor: bgRainP }} ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[0].description} />
+        <Info text={Animation2DArray[7].description} />
 
         <Leva collapsed={true}/>
 
