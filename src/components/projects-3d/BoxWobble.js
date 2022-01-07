@@ -9,6 +9,11 @@ import Info from '../parts/Info';
 
 extend({OrbitControls});
 
+
+/**
+ * Camera Controls
+ */
+
 const ControlOrbit = () => {
 
     const {camera, gl} = useThree();
@@ -32,22 +37,29 @@ const ControlOrbit = () => {
 
 }
 
-const Box = ({position, args, speed, color}) => {
+
+/**
+ * Box Component
+ */
+
+const Box = ({position, args, speed, color, rotationSpeed}) => {
 
     const mesh = useRef(null);
 
     const [expand, setExpand] = useState(false);
 
+    //Onclick enlarge instructions
     const props = useSpring({
 
         scale: expand ? [1.4, 1.4, 1.4] : [1, 1, 1]
 
     });
 
+    //Rotation
     useFrame(() => {
 
-        mesh.current.rotation.x += 0.01
-        mesh.current.rotation.y += 0.01
+        mesh.current.rotation.x += rotationSpeed
+        mesh.current.rotation.y += rotationSpeed
 
     });
 
@@ -62,6 +74,11 @@ const Box = ({position, args, speed, color}) => {
 
 }
 
+
+/**
+ * Plane Component
+ */
+
 const Plane = () => {
 
     return (
@@ -75,8 +92,17 @@ const Plane = () => {
 
 }
 
+
+/**
+ * Main component
+ */
+
 const BoxWobble = () => {
 
+    /**
+     * Leva Control Panel
+     */
+    
     const { 
 
         bg, 
@@ -94,7 +120,10 @@ const BoxWobble = () => {
         zCoordinatesTwo,
         xCoordinatesThree, 
         yCoordinatesThree, 
-        zCoordinatesThree
+        zCoordinatesThree, 
+        rotationSpeedOne,
+        rotationSpeedTwo,
+        rotationSpeedThree
 
      } = useControls('Control Panel', { 
 
@@ -104,9 +133,10 @@ const BoxWobble = () => {
 
             colorOne: { value: '#add8e6', label: 'color'},
             wobbleSpeedOne: {value: 2, min: 0, max: 10, step: 0.01, label: 'Wobble Speed'},
-            xCoordinatesOne: {value: 0, min: -5, max:5, step:0.01, label: 'X Coordinates'},
-            yCoordinatesOne: {value: 1, min: -5, max:5, step:0.01, label: 'Y Coordinates'},
-            zCoordinatesOne: {value: 0, min: -5, max:5, step:0.01, label: 'Z Coordinates'}
+            xCoordinatesOne: {value: 0, min: -5, max: 5, step:0.01, label: 'X Coordinates'},
+            yCoordinatesOne: {value: 1, min: -5, max: 5, step:0.01, label: 'Y Coordinates'},
+            zCoordinatesOne: {value: 0, min: -5, max: 5, step:0.01, label: 'Z Coordinates'},
+            rotationSpeedOne: {value: 0.01, min: 0, max: 5, step:0.01, label: 'Rotation Speed'}
 
         }),
 
@@ -116,7 +146,8 @@ const BoxWobble = () => {
             wobbleSpeedTwo: {value: 6, min: 0, max: 10, step: 0.01, label: 'Wobble Speed'},
             xCoordinatesTwo: {value: -2, min: -5, max:5, step:0.01, label: 'X Coordinates'},
             yCoordinatesTwo: {value: 1, min: -5, max:5, step:0.01, label: 'Y Coordinates'},
-            zCoordinatesTwo: {value: -5, min: -5, max:5, step:0.01, label: 'Z Coordinates'}
+            zCoordinatesTwo: {value: -5, min: -5, max:5, step:0.01, label: 'Z Coordinates'},
+            rotationSpeedTwo: {value: 0.01, min: 0, max: 5, step:0.01, label: 'Rotation Speed'}
 
         }),
 
@@ -126,7 +157,8 @@ const BoxWobble = () => {
             wobbleSpeedThree: {value: 6, min: 0, max: 10, step: 0.01, label: 'Wobble Speed'},
             xCoordinatesThree: {value: 5, min: -5, max:5, step:0.01, label: 'X Coordinates'},
             yCoordinatesThree: {value: 1, min: -5, max:5, step:0.01, label: 'Y Coordinates'},
-            zCoordinatesThree: {value: -2, min: -5, max:5, step:0.01, label: 'Z Coordinates'}
+            zCoordinatesThree: {value: -2, min: -5, max:5, step:0.01, label: 'Z Coordinates'},            
+            rotationSpeedThree: {value: 0.01, min: 0, max: 5, step:0.01, label: 'Rotation Speed'}
 
         })
      
@@ -176,18 +208,21 @@ const BoxWobble = () => {
                     position={[xCoordinatesOne, yCoordinatesOne, zCoordinatesOne]} 
                     args={[3, 2, 1]} 
                     speed={wobbleSpeedOne}
+                    rotationSpeed={rotationSpeedOne}
                     />
 
                 <Box 
                     color={colorTwo}
                     position={[xCoordinatesTwo, yCoordinatesTwo, zCoordinatesTwo]} 
                     speed={wobbleSpeedTwo}
+                    rotationSpeed={rotationSpeedTwo}
                     />
 
                 <Box 
                     color={colorThree}
                     position={[xCoordinatesThree, yCoordinatesThree, zCoordinatesThree]} 
                     speed={wobbleSpeedThree}
+                    rotationSpeed={rotationSpeedThree}
                     />
                 
             </Canvas>

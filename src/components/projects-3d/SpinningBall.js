@@ -14,6 +14,10 @@ const textureLoader = new THREE.TextureLoader()
 const normalTexture = textureLoader.load('/textures/bobble.png')
 
 
+/**
+ * Camera Controls
+ */
+
 const Controls = () => {
 
     const {camera, gl} = useThree();
@@ -38,7 +42,17 @@ const Controls = () => {
 
 }
 
+
+/**
+ * Sphere Component
+ */
+
 const Sphere = () => {
+
+
+    /**
+     * Leva Control Panel
+     */
 
     const { 
 
@@ -48,7 +62,8 @@ const Sphere = () => {
         scaleOne,
         xCoordinatesOne, 
         yCoordinatesOne, 
-        zCoordinatesOne
+        zCoordinatesOne,
+        rotationSpeedOne
 
      } = useControls('Control Panel',{ 
 
@@ -60,7 +75,8 @@ const Sphere = () => {
             scaleOne: {value: 1, min: 1, max: 20, step: 0.01, label: 'Scale'},
             xCoordinatesOne: {value: 0, min: -5, max:5, step:0.01, label: 'X Coordinates'},
             yCoordinatesOne: {value: 0, min: -5, max:5, step:0.01, label: 'Y Coordinates'},
-            zCoordinatesOne: {value: 0, min: -5, max:5, step:0.01, label: 'Z Coordinates'}
+            zCoordinatesOne: {value: 0, min: -5, max:5, step:0.01, label: 'Z Coordinates'},
+            rotationSpeedOne: {value: 0.005, min: 0.001, max:2, step:0.001, label: 'Rotation Speed'}
 
         })
 
@@ -69,10 +85,11 @@ const Sphere = () => {
     const [active, setActive] = useState(false);
     const mesh = useRef()
    
+    //Rotation of sphere
     useFrame(() => {
 
-        mesh.current.rotation.x += 0.005;
-        mesh.current.rotation.y += 0.005;
+        mesh.current.rotation.x += rotationSpeedOne;
+        mesh.current.rotation.y += rotationSpeedOne;
 
     })
     
@@ -105,8 +122,18 @@ const Sphere = () => {
 
 }
 
+
+/**
+ * Point light component
+ */
+
 const PointLight = () => {
     
+
+    /**
+     * Leva Control Panel
+     */
+
     const { 
 
         colorTwo,  
@@ -142,7 +169,17 @@ const PointLight = () => {
     )
 }
 
+
+/**
+ * Spot Light Component
+ */
+
 const SpotLight = () => {
+
+
+    /**
+     * Leva Control Panel
+     */
 
     const { 
 
@@ -186,6 +223,11 @@ const SpotLight = () => {
 
 const SpinningBall = () => {
 
+
+    /**
+     * Leva Control Panel
+     */
+
     const { 
 
         colorFour,  
@@ -211,6 +253,11 @@ const SpinningBall = () => {
         canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
 
+
+        /**
+         * Canvas Resize function
+         */
+
         const handleResize = () => {
 
             canvas.width  = window.innerWidth;
@@ -218,6 +265,11 @@ const SpinningBall = () => {
 
         }
 
+
+        /**
+         * Event Listener
+         */
+        
         window.addEventListener('resize', handleResize);  
 
     }, [])
@@ -237,7 +289,7 @@ const SpinningBall = () => {
                 textTransform: 'uppercase',
                 fontSize: `${sizeFour}vw`
                 }}>
-                    {Animation3DArray[2].name}
+                    {Animation3DArray[1].name}
             </h1>
 
             <Canvas 

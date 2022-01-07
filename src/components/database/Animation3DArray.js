@@ -1,5 +1,5 @@
 import BWImg from '../../assets/images/tileImages/BoxWobble.jpg';
-import FAImg from '../../assets/images/tileImages/FoxAnimate.jpg';
+//import FAImg from '../../assets/images/tileImages/FoxAnimate.jpg';
 import ISImg from '../../assets/images/tileImages/SpinningBall.jpg';
 import PSImg from '../../assets/images/tileImages/ParticleSystem.jpg';
 import PWImg from '../../assets/images/tileImages/ParticleWaves.jpg';
@@ -13,7 +13,7 @@ let Animation3DArray = [
         name: 'Box Wobble',
         path: '/animation-3d/box-wobble',
         image: BWImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'This 3d animation consists of 3 cuboids. Using MeshWobbleMaterial from @react-three/drei, I’ve added a wobble to all the cuboids. Along with the wobble, there is a rotation applied to the x and y axis of 0.01. With the use of useSpring from @react-three/fiber, each cuboid grows in scale by 1.4 on mouse click. The Leva control panel on the side will allow you to change some of the Propeties to this canvas animation. '
     },
     /*{
         id: 1,
