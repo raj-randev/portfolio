@@ -316,7 +316,7 @@ const SpinningBall = () => {
 
             <Leva collapsed={true}/>
 
-            <Info text={Animation3DArray[2].description} />
+            <Info text={Animation3DArray[1].description} />
 
         </div>
 

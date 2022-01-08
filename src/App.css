@@ -1,5 +1,6 @@
 /*Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
 /*Keyframe Animation*/
 @keyframes gradient {
@@ -235,6 +236,7 @@ a.navButton p {
 }
 
 /*Project Info & Toggle Class*/
+
 .infoLogoContainer {
   position: fixed;
   bottom: 0;
@@ -245,9 +247,11 @@ a.navButton p {
 
 .noDisplayInfo {
   border: 2px solid #000000;
-  padding: 10px;
+  padding: 25px;
+  box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.9);
   width: 90vw;
+  max-height: 40vh;
   position: fixed;
   left: 4vw;
   bottom: -200px;
@@ -257,15 +261,66 @@ a.navButton p {
 
 .displayInfo {
   border: 2px solid #000000;
-  padding: 10px;
+  padding: 25px;
+  box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.9);
   width: 90vw;
+  max-height: 40vh;
   position: fixed;
   left: 4vw;
   bottom: 40px;
   animation: appear 1s;
   display: block;
   font-weight: 600;
+}
+
+.topSection {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.topSection h2 {
+  margin: 0 0 10px 0;
+}
+
+.repoLink {
+  position: absolute;
+  right: 30px;
+  display: flex;
+  font-size: 15px;
+  top: 32px;
+}
+.descriptionSection {
+  overflow: scroll;
+  height: 150px;
+}
+
+.whiteFont {
+  color: #ffffff;
+}
+
+.blackBackground {
+  background-color: #1e1e1e;
+}
+
+.code {
+  font-family: 'Courier Prime';
+  font-size: smaller;
+  font-weight: 300;
+  padding: 3px 3px 0 3px;
+}
+
+.yellowFont {
+  color: hsl(60, 51%, 81%);
+}
+
+.lightBlueFont {
+  color: #9cdcfe;
+}
+
+.darkBlueFont {
+  color: #4fc1ff;
 }
 
 @media (max-width: 722px) {

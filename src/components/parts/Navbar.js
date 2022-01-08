@@ -1,7 +1,7 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDiceD20, faFileCode } from '@fortawesome/free-solid-svg-icons'
-import { faNeos, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDiceD20, faFileCode } from '@fortawesome/free-solid-svg-icons';
+import { faNeos, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import logo from '../../assets/images/stackedLogoV1.png';
 import { Link } from "react-router-dom";
 

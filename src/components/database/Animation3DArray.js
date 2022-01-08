@@ -27,7 +27,7 @@ let Animation3DArray = [
         name: 'Spinning Ball',
         path: '/animation-3d/spinning-ball',
         image: ISImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'This 3d animation consists of a sphere and title. The sphere texture is made by using a texture loader and placing it on the material using the normalMap property. This texture produces shadows within the crevasses whilst light is pointed towards it. There are 2 lights being used in the scene. A spotlight and a pointLight that use a red and blue light. All the properties for the sphere, lights and font can be editing in the Leva control panel.'
     },
     {
         id: 3,
