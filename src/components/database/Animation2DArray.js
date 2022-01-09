@@ -46,7 +46,7 @@ let Animation2DArray = [
         id: 4,
         name: 'Collison Detector',
         path: '/animation-2d/collision-detector',
-        repo: '',
+        repo: 'https://github.com/raj-randev/Collision-Detector',
         image: CDImg,
         description: '<p>For this 2d animation, we have particles that have weight. Along with movement, each particle passes on its velocity when it meets other moving particles. The fillStyle of each particle is affected by the mouse hovering over it with a 200px diameter. To get a realistic collision between the particles, the resolveCollision() function is used to calculate the physics between each interaction.</p>'
     },
