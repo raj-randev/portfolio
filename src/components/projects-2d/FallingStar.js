@@ -311,7 +311,7 @@ const FallingStar = () => {
 
         <canvas ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[2].description} />
+        <Info title={Animation2DArray[2].name} repoAddress={Animation2DArray[2].repo} text={Animation2DArray[2].description} />
 
       </div>
 

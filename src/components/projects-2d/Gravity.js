@@ -197,7 +197,7 @@ const Gravity = () => {
 
         <canvas style={{backgroundColor: bgG }} ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[1].description} />
+        <Info title={Animation2DArray[1].name} repoAddress={Animation2DArray[1].repo} text={Animation2DArray[1].description} />
 
         <Leva collapsed={true} />
 

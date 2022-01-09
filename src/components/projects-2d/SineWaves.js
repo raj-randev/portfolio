@@ -112,7 +112,7 @@ const SineWaves = () => {
 
         <canvas ref={canvasRef} ></canvas>
 
-        <Info title={Animation2DArray[9].name} text={Animation2DArray[9].description} />
+        <Info title={Animation2DArray[9].name} repoAddress={Animation2DArray[9].repo} text={Animation2DArray[9].description} />
 
       </div>
 

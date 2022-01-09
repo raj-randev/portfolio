@@ -207,7 +207,7 @@ const RepelParticles = () => {
 
         <canvas style={{backgroundColor: bgRepP }} ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[8].description} />
+        <Info title={Animation2DArray[8].name} repoAddress={Animation2DArray[8].repo} text={Animation2DArray[8].description} />
 
         <Leva collapsed={true}/>
 

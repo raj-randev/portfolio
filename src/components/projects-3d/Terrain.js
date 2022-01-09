@@ -130,7 +130,7 @@ const Terrain = () => {
 
             <Leva collapsed={true}/>
 
-            <Info text={Animation3DArray[6].description} />
+            <Info title={Animation3DArray[6].name} repoAddress={Animation3DArray[6].repo} text={Animation3DArray[6].description} />
 
         </div>
 

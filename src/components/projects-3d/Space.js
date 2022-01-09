@@ -253,7 +253,7 @@ const Space = () => {
 
             <Leva collapsed={true}/>
 
-            <Info text={Animation3DArray[5].description} />
+            <Info title={Animation3DArray[5].name} repoAddress={Animation3DArray[5].repo} text={Animation3DArray[5].description} />
             
         </div>
   );

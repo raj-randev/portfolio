@@ -219,7 +219,7 @@ const CollisionDetector= () => {
 
         <canvas style={{backgroundColor: bgCD }} ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[4].description} />
+        <Info title={Animation2DArray[4].name} repoAddress={Animation2DArray[4].repo} text={Animation2DArray[4].description} />
 
         <Leva collapsed={true}/>
 

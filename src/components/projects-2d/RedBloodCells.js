@@ -186,7 +186,7 @@ const RedBloodCells = () => {
 
         <canvas style={{backgroundColor: bgRBC }} ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[0].description} />
+        <Info title={Animation2DArray[0].name} repoAddress={Animation2DArray[0].repo} text={Animation2DArray[0].description} />
 
         <Leva collapsed={true} />
 

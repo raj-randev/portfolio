@@ -229,7 +229,7 @@ const BoxWobble = () => {
 
             <Leva collapsed={true}/>
 
-            <Info text={Animation3DArray[0].description} />
+            <Info title={Animation3DArray[0].name} repoAddress={Animation3DArray[0].repo} text={Animation3DArray[0].description} />
 
         </div>
         

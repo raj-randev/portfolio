@@ -190,7 +190,7 @@ const ParticleSystem = () => {
 
             <Leva collapsed={true}/>
 
-            <Info text={Animation3DArray[2].description} />
+            <Info title={Animation3DArray[2].name} repoAddress={Animation3DArray[2].repo} text={Animation3DArray[2].description} />
 
         </div>    
     )

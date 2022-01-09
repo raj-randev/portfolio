@@ -190,7 +190,7 @@ const GalacticSwirl = () => {
 
         <canvas ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[5].description} />
+        <Info title={Animation2DArray[5].name} repoAddress={Animation2DArray[5].repo} text={Animation2DArray[5].description} />
 
       </div>  
 

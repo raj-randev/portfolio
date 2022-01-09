@@ -222,7 +222,7 @@ const RainbowParticles = () => {
 
         <canvas style={{backgroundColor: bgRainP }} ref={canvasRef} ></canvas>
 
-        <Info text={Animation2DArray[7].description} />
+        <Info title={Animation2DArray[7].name} repoAddress={Animation2DArray[7].repo} text={Animation2DArray[7].description} />
 
         <Leva collapsed={true}/>
 

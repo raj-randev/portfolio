@@ -166,7 +166,7 @@ const ParticleWaves = () => {
 
         <Leva collapsed={true}/>
 
-        <Info text={Animation3DArray[3].description} />
+        <Info title={Animation3DArray[3].name} repoAddress={Animation3DArray[3].repo} text={Animation3DArray[3].description} />
 
     </div>  
 

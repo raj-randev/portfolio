@@ -213,7 +213,7 @@ const InteractiveBalls = () => {
 
           <canvas style={{backgroundColor: bgIB}} ref={canvasRef} ></canvas>
 
-          <Info text={Animation2DArray[6].description} />
+          <Info title={Animation2DArray[6].name} repoAddress={Animation2DArray[6].repo} text={Animation2DArray[6].description} />
 
           <Leva collapsed={true}/>
 

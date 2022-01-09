@@ -198,7 +198,7 @@ const CircularSpins = () => {
 
         <canvas ref={canvasRef}  ></canvas>
 
-        <Info text={Animation2DArray[3].description} />
+        <Info title={Animation2DArray[3].name} repoAddress={Animation2DArray[3].repo} text={Animation2DArray[3].description} />
 
       </div>
   )

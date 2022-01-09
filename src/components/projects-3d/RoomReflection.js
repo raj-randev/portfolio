@@ -139,7 +139,7 @@ function App() {
 
       <Leva collapsed={true}/>
 
-      <Info text={Animation3DArray[4].description} />
+      <Info title={Animation3DArray[4].name} repoAddress={Animation3DArray[4].repo} text={Animation3DArray[4].description} />
 
     </div>  
 
