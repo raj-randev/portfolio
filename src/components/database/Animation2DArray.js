@@ -16,7 +16,7 @@ let Animation2DArray = [
         path: '/animation-2d/red-blood-cells',
         repo: '',
         image: BDImg,
-        description: 'For this 2d animation, I used a for loop to create 100 red blood cells. The for loop contains a radius variable, x and y positions as variables and x + y velocities as variables. All these variables are added to a class constructor and stored in circle array. For the red blood cells to have random positions and random speeds, the position and velocity variables contain equations with the Math.random() function. As well as the Math.random() function, the position equation includes the canvas width and height and the diameter of the red blood cell. This ensures that all blood cells fall randomly within the area of the window. The movement and speed of each blood cell is dictated by its random velocity. The random velocity goes in all directions as a Math.random() value has 0.5 subtracted from it and therefore, can either be positive of negative. '
+        description: '<p>For this 2d animation, I used a for loop to create 100 red blood cells. The for loop contains a radius variable, x and y positions as variables and x + y velocities as variables. All these variables are added to a class constructor and stored in circle array. For the red blood cells to have random positions and random speeds, the position and velocity variables contain equations with the Math.random() function. As well as the Math.random() function, the position equation includes the canvas width and height and the diameter of the red blood cell. This ensures that all blood cells fall randomly within the area of the window. The movement and speed of each blood cell is dictated by its random velocity. The random velocity goes in all directions as a Math.random() value has 0.5 subtracted from it and therefore, can either be positive of negative.</p>'
     },
     {
         id: 1,
@@ -24,7 +24,7 @@ let Animation2DArray = [
         path: '/animation-2d/gravity',
         repo: '',
         image: GImg,
-        description: 'For this 2d animation, I used a for loop to create 100 circles. I used a random value function to set the radius of each circle between 10-40px. I used the same function to set the x and y positions of each circle between the canvas. This function also worked to produce a velocity between –5 and 5. This allows the circle to travel in all directions. The randomColor() function runs through an array of colours and displays it within the animation. The gravity variable is set to 1 and acts as a constant. To slow the circles down, the variable friction is multiplied with gravity every second. Friction is set to 0.9 and results in the circle slowing to a standstill.'
+        description: '<p>For this 2d animation, I used a for loop to create 100 circles. I used a random value function to set the radius of each circle between 10-40px. I used the same function to set the x and y positions of each circle between the canvas. This function also worked to produce a velocity between –5 and 5. This allows the circle to travel in all directions. The randomColor() function runs through an array of colours and displays it within the animation. The gravity variable is set to 1 and acts as a constant. To slow the circles down, the variable friction is multiplied with gravity every second. Friction is set to 0.9 and results in the circle slowing to a standstill.</p>'
     },
     {
         id: 2,
@@ -32,7 +32,7 @@ let Animation2DArray = [
         path: '/animation-2d/falling-star',
         repo: '',
         image: FSImg,
-        description: 'For this animation, white circles are created outside of the canvas and have the force of gravity added to them. Once the circle meets the floor and walls, it gets removed from the circle array and 8 smaller circles are added. These 8 circles have a random velocity added to them and move in a different direction as a result. When the 8 circles hit the floor or sides, they are removed from the array, 8 more smaller circles are created. There is an if/else statement to remove all circles completely once they are below a certain size.'
+        description: '<p>For this animation, white circles are created outside of the canvas and have the force of gravity added to them. Once the circle meets the floor and walls, it gets removed from the circle array and 8 smaller circles are added. These 8 circles have a random velocity added to them and move in a different direction as a result. When the 8 circles hit the floor or sides, they are removed from the array, 8 more smaller circles are created. There is an if/else statement to remove all circles completely once they are below a certain size.</p>'
     },
     {
         id: 3,
@@ -40,7 +40,7 @@ let Animation2DArray = [
         path: '/animation-2d/circular-spins',
         repo: '',
         image: CSImg,
-        description: 'This animation requires several variables. The particles starting points (which begins in the center of the canvas), a radius to dictate the thickness of each particle, a colour array to instruct the colour of the particle and a randomIntFromRange() function to dictate the distance from the center of the circle. For the particles to move in a circular motion, Math.PI is multiplied by 2 and is added to a velocity of 0.07. This is put in an update function and is called on every frame. The canvas fillRect is also updated on each frame and because it has an opaque white background, results in each particle leaving a tail behind it.'
+        description: '<p>This animation requires several variables. The particles starting points (which begins in the center of the canvas), a radius to dictate the thickness of each particle, a colour array to instruct the colour of the particle and a randomIntFromRange() function to dictate the distance from the center of the circle. For the particles to move in a circular motion, Math.PI is multiplied by 2 and is added to a velocity of 0.07. This is put in an update function and is called on every frame. The canvas fillRect is also updated on each frame and because it has an opaque white background, results in each particle leaving a tail behind it.</p>'
     },
     {
         id: 4,
@@ -48,7 +48,7 @@ let Animation2DArray = [
         path: '/animation-2d/collision-detector',
         repo: '',
         image: CDImg,
-        description: 'For this 2d animation, we have particles that have weight. Along with movement, each particle passes on its velocity when it meets other moving particles. The fillStyle of each particle is affected by the mouse hovering over it with a 200px diameter. To get a realistic collision between the particles, the resolveCollision() function is used to calculate the physics between each interaction.'
+        description: '<p>For this 2d animation, we have particles that have weight. Along with movement, each particle passes on its velocity when it meets other moving particles. The fillStyle of each particle is affected by the mouse hovering over it with a 200px diameter. To get a realistic collision between the particles, the resolveCollision() function is used to calculate the physics between each interaction.</p>'
     },
     {
         id: 5,
@@ -56,7 +56,7 @@ let Animation2DArray = [
         path: '/animation-2d/galactic-swirl',
         repo: '',
         image: GSImg,
-        description: 'This 2d animation consists of a black canvas and multiple particles. The particle uses a selection of colours from an array. The particles are randomly placed within the canvas area and are set on rotation. Math.random() multiplied by 2*Math.PI sets the movement on a circle and each frame is updated by adding 0.01 to this value. To ensure the particles go beyond the visible canvas, extra width is added to all sides. The alpha value for the black background colour decreases with and a mouseDown event and increases with a mouseUp event. This gives the effect of a trail behind each particle.'
+        description: '<p>This 2d animation consists of a black canvas and multiple particles. The particle uses a selection of colours from an array. The particles are randomly placed within the canvas area and are set on rotation. Math.random() multiplied by 2*Math.PI sets the movement on a circle and each frame is updated by adding 0.01 to this value. To ensure the particles go beyond the visible canvas, extra width is added to all sides. The alpha value for the black background colour decreases with and a mouseDown event and increases with a mouseUp event. This gives the effect of a trail behind each particle.</p>'
     },
     {
         id: 6,
@@ -64,7 +64,7 @@ let Animation2DArray = [
         path: '/animation-2d/interactive-balls',
         repo: '',
         image: IBImg,
-        description: 'This 2d animation contains an array of colours, a function to state the size of the particles between a certain range and instructions on the movement of each particle. On hover, any particle that is within a 50px radius increases its size to 200px in diameter.'
+        description: '<p>This 2d animation contains an array of colours, a function to state the size of the particles between a certain range and instructions on the movement of each particle. On hover, any particle that is within a 50px radius increases its size to 200px in diameter.</p>'
     },
     {
         id: 7,
@@ -72,7 +72,7 @@ let Animation2DArray = [
         path: '/animation-2d/rainbow-particles',
         repo: '',
         image: RPImg,
-        description: 'For this 2d animation, particles are created either with mouse movement or on a mouse click. 5 particles are created on each click and 2 particles are created each time the mouse moves. The particle size is determined by the equation { Math.random() * 15 + 1;}, as a result, the particle size ranges between 1 and 15 px. The movement of each particle is determined by the equation { Math.random() * 3 - 1.5; }, as a result, the x and y movements are random in all directions. The colour of the particles change because the HSL value has been concatenated and a variable is used for the Hue value. The Hue variable is determined by the equation {  hue += 0.5; }, as a result, the colour smoothly changes with every frame of animation. The particles decrease in size with every frame until they are removed from the screen. This is achieved with the equation { if (this.size > 0.2) this.size -=0.05; }. It states that if the particle is bigger than 0.2px, decrease the size of the particle at a rate of 0.05px. The equation { if (particleArray[i].size <= 0.3) { particleArray.splice(i, 1); i--; }, instructs the particle to disappear if it’s smaller or equal to 0.3px and is removed from the particle array.  Finally, a line is drawn between each particle if the space between them is smaller than 100px. This is done by figuring out the hypotenuse between 2 points and adding a lineTo with the same colour from the particle class constructor. '
+        description: '<p>For this 2d animation, particles are created either with mouse movement or on a mouse click. 5 particles are created on each click and 2 particles are created each time the mouse moves. The particle size is determined by the equation { Math.random() * 15 + 1;}, as a result, the particle size ranges between 1 and 15 px. The movement of each particle is determined by the equation { Math.random() * 3 - 1.5; }, as a result, the x and y movements are random in all directions. The colour of the particles change because the HSL value has been concatenated and a variable is used for the Hue value. The Hue variable is determined by the equation {  hue += 0.5; }, as a result, the colour smoothly changes with every frame of animation. The particles decrease in size with every frame until they are removed from the screen. This is achieved with the equation { if (this.size > 0.2) this.size -=0.05; }. It states that if the particle is bigger than 0.2px, decrease the size of the particle at a rate of 0.05px. The equation { if (particleArray[i].size <= 0.3) { particleArray.splice(i, 1); i--; }, instructs the particle to disappear if it’s smaller or equal to 0.3px and is removed from the particle array.  Finally, a line is drawn between each particle if the space between them is smaller than 100px. This is done by figuring out the hypotenuse between 2 points and adding a lineTo with the same colour from the particle class constructor.</p>'
     },
     {
         id: 8,
@@ -80,7 +80,7 @@ let Animation2DArray = [
         path: '/animation-2d/repel-particles',
         repo: '',
         image: RPPImg,
-        description: 'For this 2d animation, I have placed 1500 particles randomly between the canvas\'s width and height. I’ve stored the current x and y values for the mouse in a variable and use a mouse move event listener to update that value. In order to produce the repel action, the mouse has a radius of 250px and the particles move at different speeds to reach the circumference of the circle.'
+        description: '<p>For this 2d animation, I have placed 1500 particles randomly between the canvas\'s width and height. I’ve stored the current x and y values for the mouse in a variable and use a mouse move event listener to update that value. In order to produce the repel action, the mouse has a radius of 250px and the particles move at different speeds to reach the circumference of the circle.</p>'
     },
     {
         id: 9,
