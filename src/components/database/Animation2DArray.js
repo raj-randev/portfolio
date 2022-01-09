@@ -14,7 +14,7 @@ let Animation2DArray = [
         id: 0,
         name: 'Red Blood Cells',
         path: '/animation-2d/red-blood-cells',
-        repo: '',
+        repo: 'https://github.com/raj-randev/Red-Blood-Cells',
         image: BDImg,
         description: '<p>For this 2d animation, I used a for loop to create 100 red blood cells. The for loop contains a radius variable, x and y positions as variables and x + y velocities as variables. All these variables are added to a class constructor and stored in circle array. For the red blood cells to have random positions and random speeds, the position and velocity variables contain equations with the Math.random() function. As well as the Math.random() function, the position equation includes the canvas width and height and the diameter of the red blood cell. This ensures that all blood cells fall randomly within the area of the window. The movement and speed of each blood cell is dictated by its random velocity. The random velocity goes in all directions as a Math.random() value has 0.5 subtracted from it and therefore, can either be positive of negative.</p>'
     },
@@ -38,7 +38,7 @@ let Animation2DArray = [
         id: 3,
         name: 'Circular Spins',
         path: '/animation-2d/circular-spins',
-        repo: '',
+        repo: 'https://github.com/raj-randev/Circular-Spins',
         image: CSImg,
         description: '<p>This animation requires several variables. The particles starting points (which begins in the center of the canvas), a radius to dictate the thickness of each particle, a colour array to instruct the colour of the particle and a randomIntFromRange() function to dictate the distance from the center of the circle. For the particles to move in a circular motion, Math.PI is multiplied by 2 and is added to a velocity of 0.07. This is put in an update function and is called on every frame. The canvas fillRect is also updated on each frame and because it has an opaque white background, results in each particle leaving a tail behind it.</p>'
     },
