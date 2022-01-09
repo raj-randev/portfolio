@@ -89,7 +89,7 @@ function Sphere() {
 
   });
 
-  const cubeCamera = new CubeCamera(1, 1000, cubeRenderTarget);
+  const cubeCamera = new CubeCamera(1, 10, cubeRenderTarget);
 
   cubeCamera.position.set(0, 0, 0);
 

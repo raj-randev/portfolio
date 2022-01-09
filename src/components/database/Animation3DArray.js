@@ -34,21 +34,21 @@ let Animation3DArray = [
         name: 'Particle System',
         path: '/animation-3d/particle-system',
         image: PSImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'For this 3d animation, I have created a particle system and a torus. The particle system consists of 10,000 points that all require an x, y and z coordinate. These coordinates are set for the position of the bufferAttribute by stating the itemSize to equal 3. It is then run through a for loop 10,000 times using the { (Math.random() - 0.5) * 15 } to produce random positions in all 3 dimensions. A texture loader is used to apply a cross image to each point. A torus is also added to the scene and I have used pointMaterial to show the skeleton of the shape. All the properties of the torus, particle system and background can be modified using the Leva control panel.'
     },
     {
         id: 4,
         name: 'Particle Wave',
         path: '/animation-3d/particle-wave',
         image: PWImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'For this 3d animation, particles are arranged in a layer and move in a wave. The position of each particle is equally distance on the x and z axis. They are animated on the y-axis using the graph function. The graph function includes a period variable, amplitude variable and a frequency variable. These variables give the wave height, length, and speed. All the waves\' properties can be modified using the Leva control panel.'
     },
     {
         id: 5,
         name: 'Room Reflection',
         path: '/animation-3d/room-reflection',
         image: RRImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'For this 3d animation, there is a reflective sphere in the middle of the scene and a skybox with an environment surrounding it. The skybox requires a texture loader to load 6 sides of the cube. The sphere uses a meshBasicMaterial with an envMap of cubeCamera. This gives the surface the capability of reflecting the environment around it. The size of the sphere can be changed using the Leva control panel.'
     },
     {
         id: 6,
