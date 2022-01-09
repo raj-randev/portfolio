@@ -55,14 +55,14 @@ let Animation3DArray = [
         name: 'Space',
         path: '/animation-3d/space',
         image: SImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'For this 3d animation, I have created a particle and a sphere in the middle of the scene. I have used a vertex shader to apply a UV map of planet earth to the uTexture of the material. I have used a second vertex shader to create an atmosphere and set its scale to 1.1 times the size of the original sphere. This gives the planet a glow. The earth sphere reacts to the movement of the mouse. The size and speed of the earth can be controlled by the Leva panel in the top righthand corne'
     },
     {
         id: 7,
         name: 'Terrain',
         path: '/animation-3d/terrain',
         image: TImg,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit nunc dolor, id consectetur quam lobortis id. Curabitur interdum risus eget turpis condimentum dignissim. Nulla sed leo lobortis, tincidunt lectus sed, molestie ligula. Donec quis porta felis. Suspendisse sed fermentum erat. Vestibulum sollicitudin, nulla ac dapibus ullamcorper, enim est semper dui, at iaculis ligula tortor sed justo.'
+        description: 'For this 3d animation, I have used a few texture loaders to load the bird’s eye image of a mountain range on to a planeBufferGeometry. I have used a meshStandardmaterial and set its displacementMap property to the other texture loaded. This gives the birds’ eye map depth in the y-axis and gives the plane a 3d feel. The width, depth and color can be controlled by the Leva control panel in the righthand corner.'
     }
 ]
 export default Animation3DArray;
