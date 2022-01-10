@@ -4,7 +4,7 @@ import TileInternal from '../parts/TileInternal'
 
 const Animation3D = () => {
     return (
-        <div id='projects'>
+        <div className='projects'>
             <h1 style={{textAlign: 'center', color: '#ffffff', margin: 0, padding: '20px 0'}}>3D Animations</h1>
             <div className='projectHolder'>
                 {projects.map(project => {
