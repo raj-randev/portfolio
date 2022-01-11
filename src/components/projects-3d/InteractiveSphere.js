@@ -199,9 +199,9 @@ const InertactiveSphere = () => {
                 color: `${colorFour}`, 
                 zIndex: '3',
                 textTransform: 'uppercase',
-                fontSize: `${sizeFour}vw`
+                fontSize: `${sizeFour}vw`,
                 }}>
-                    Spinning Ball
+                    {Animation3DArray[1].name}
             </h1>
             <Canvas 
             ref={canvasRef}

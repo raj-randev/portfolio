@@ -152,6 +152,17 @@ a.navButton p {
   margin: 5px 0 10px 0;
 }
 
+/* Homepage */
+
+#home img.homeLogo {
+  width: 300px;
+}
+@media (max-width: 374px) {
+  #home img.homeLogo {
+    width: 90vw;
+  }
+}
+
 /* Page Title Holder */
 .pageTitle {
   position: absolute;
@@ -163,6 +174,11 @@ a.navButton p {
 .pageTitle h1,
 .pageTitle h3 {
   font-weight: 100;
+}
+@media (max-width: 400px) {
+  .pageTitle h1, .pageTitle h3  {
+    font-weight: 300;
+  }
 }
 
 /*Project & Tile Holder*/
@@ -243,6 +259,9 @@ a.navButton p {
   .tileHolder {
     width: 100%;
   }
+  .tileTitleContainer h2 {
+    font-size: 6vw;
+  }
 }
 
 /*Project Info & Toggle Class*/
@@ -306,6 +325,16 @@ a.navButton p {
   font-weight: 400;
 }
 
+@media (max-width: 420px) {
+  .topSection {
+    padding: 5px 0 15px 0;
+}
+  .repoLink {
+    right: unset;
+    top: 62px;
+  }
+}
+
 .descriptionSection {
   overflow: scroll;
   height: 150px;
@@ -327,7 +356,7 @@ a.navButton p {
 }
 
 .yellowFont {
-  color: hsl(60, 51%, 81%);
+  color: #e7e7b6;
 }
 
 .lightBlueFont {
@@ -336,6 +365,10 @@ a.navButton p {
 
 .darkBlueFont {
   color: #4fc1ff;
+}
+
+.lightGreenFont {
+  color: #baea3f;
 }
 
 @media (max-width: 722px) {
@@ -356,9 +389,6 @@ a.navButton p {
   }
 }
 @media (max-width: 439px) {
-  .tileHolder {
-    width: 47%;
-  }
   .leva-c-kWgxhW-bCBHqk-fill-false {
     left: 60px !important;
   }

@@ -5,7 +5,7 @@ import { faNeos, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons
 import logo from '../../assets/images/stackedLogoV1.png';
 import { Link } from "react-router-dom";
 
-const Navbar = ({navClass, toggleMenu}) => {
+const Navbar = ({navClass, toggleMenu, props}) => {
     return (
        
         <div className={navClass}>
@@ -18,9 +18,9 @@ const Navbar = ({navClass, toggleMenu}) => {
                 </div>
                 <div className='navList'>
                     <ul>
-                        <li key={1}><Link onClick={toggleMenu} to='/animation-2d/' className='navButton'><FontAwesomeIcon style={{fontSize: '40px'}} color='#ffffff' icon={faDiceD20}/> <p>2D Animations</p></Link></li>
-                        <li key={2}><Link onClick={toggleMenu} to='/animation-3d/' className='navButton'><FontAwesomeIcon style={{fontSize: '40px'}} color='#ffffff' icon={faNeos}/> <p>3D Animations</p></Link></li>
-                        <li key={3}><Link onClick={toggleMenu}  to='/websites/' className='navButton'><FontAwesomeIcon style={{fontSize: '40px'}} color='#ffffff' icon={faFileCode}/> <p>Websites</p></Link></li>
+                        <li key={1} {...props}><Link onClick={toggleMenu} to='/animation-2d/' className='navButton'><FontAwesomeIcon style={{fontSize: '40px'}} color='#ffffff' icon={faDiceD20}/> <p>2D Animations</p></Link></li>
+                        <li key={2} {...props}><Link onClick={toggleMenu} to='/animation-3d/' className='navButton'><FontAwesomeIcon style={{fontSize: '40px'}} color='#ffffff' icon={faNeos}/> <p>3D Animations</p></Link></li>
+                        <li key={3} {...props}><Link onClick={toggleMenu}  to='/websites/' className='navButton'><FontAwesomeIcon style={{fontSize: '40px'}} color='#ffffff' icon={faFileCode}/> <p>Websites</p></Link></li>
                     </ul>
                 </div>
                 <div className='navList'>

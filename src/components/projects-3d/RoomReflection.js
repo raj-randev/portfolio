@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import { Canvas, extend, useThree, useFrame } from "@react-three/fiber";
 import {
   CubeTextureLoader,
@@ -128,15 +128,15 @@ function App() {
       <div className='pageTitle'>
         <h1 style={{color: '#ffffff'}}>{Animation3DArray[4].name}</h1>
       </div>
-
+      <Suspense fallback='Loading'>
       <Canvas className="canvas">
-
-        <CameraControls />
-        <Sphere />
-        <SkyBox />
-
+        
+          <CameraControls />
+          <Sphere />
+          <SkyBox />
+          
       </Canvas>
-
+      </Suspense>
       <Leva collapsed={true}/>
 
       <Info title={Animation3DArray[4].name} repoAddress={Animation3DArray[4].repo} text={Animation3DArray[4].description} />
