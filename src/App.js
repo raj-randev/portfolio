@@ -24,6 +24,7 @@ import ParticleWaves from './components/projects-3d/ParticleWaves';
 import RoomRefletion from './components/projects-3d/RoomReflection';
 import Space from './components/projects-3d/Space';
 import Terrain from './components/projects-3d/Terrain';
+import ParticleWeb from './components/projects-2d/ParticleWeb';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
               <Route exact path='/animation-2d/rainbow-particles' element={<RainbowParticles />} />
               <Route exact path='/animation-2d/repel-particles' element={<RepelParticles />} />
               <Route exact path='/animation-2d/sine-waves' element={<SineWaves/>} />
+              <Route exact path='/animation-2d/particle-web' element={<ParticleWeb />} />
             <Route exact path="/animation-3d/" element={<Animation3D />} />
               <Route exact path='/animation-3d/box-wobble' element={<BoxWobble/>} />              
               <Route exact path='/animation-3d/spinning-ball' element={<SpinningBall/>} />

@@ -8,6 +8,7 @@ import IBImg from '../../assets/images/tileImages/InteractiveBalls.jpg';
 import RPImg from '../../assets/images/tileImages/RainbowParticles.jpg';
 import RPPImg from '../../assets/images/tileImages/RepelParticles.jpg';
 import SWImg from '../../assets/images/tileImages/SinWaves.jpg';
+import PWImg from '../../assets/images/tileImages/ParticleWeb.jpg';
 
 let Animation2DArray = [
     {
@@ -89,6 +90,14 @@ let Animation2DArray = [
         repo: 'https://github.com/raj-randev/sine-waves',
         image: SWImg,
         description: '<p>For this 2d animation, we start off with a lineTo line from the halfway point of the canvas height that goes the width of the canvas. To give the line a wave, we need to affect each pixel of the line. We can do this by running the lineTo through a for loop by the width of the canvas. We then multiply the start point by <span class="code whiteFont blackBackground"><span class="lightBlueFont">Math</span>.<span class="yellowFont">sin</span>()</span> over every iteration and this produces a tight and small wavy line. In order to make our wave bigger in length, we add <span class="code whiteFont blackBackground">{ <span class="lightBlueFont">i</span> * <span class="darkBlueFont">wave</span>.<span class="lightBlueFont">length</span> }</span> argument the  <span class="code whiteFont blackBackground"><span class="lightBlueFont">Math</span>.<span class="yellowFont">sin</span>()</span> function. We add an increment value inside of the argument and this give the wave horizontal movement on each frame of animation. To give the wave height, we multiply everything by a wave.amplitude variable. Finally, to give the wave dynamic movement, we multiply everything by Math.sin(increment). The whole equation looks like this <span class="code whiteFont blackBackground">{ <span class="lightBlueFont">c</span>.<span class="yellowFont">lineTo</span>(<span class="lightBlueFont">i</span>, <span class="darkBlueFont">wave</span>.<span class="lightBlueFont">y</span> + <span class="lightBlueFont">Math</span>.<span class="yellowFont">sin</span>(<span class="lightBlueFont">i</span> * <span class="darkBlueFont">wave</span>.<span class="lightBlueFont">length</span> + <span class="lightBlueFont">increment</span>) * <span class="darkBlueFont">wave</span>.<span class="lightBlueFont">amplitude</span> * <span class="lightBlueFont">Math</span>.<span class="yellowFont">sin</span>(<span class="lightBlueFont">increment</span>));}</span></p>'
+    },
+    {
+        id: 10,
+        name: 'Particle Web',
+        path: '/animation-2d/particle-web',
+        repo: 'https://github.com/raj-randev/Particle-Web',
+        image: PWImg,
+        description: ''
     }
 ]
 
