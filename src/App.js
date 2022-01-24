@@ -25,6 +25,7 @@ import RoomRefletion from './components/projects-3d/RoomReflection';
 import Space from './components/projects-3d/Space';
 import Terrain from './components/projects-3d/Terrain';
 import ParticleWeb from './components/projects-2d/ParticleWeb';
+import ShaderMaterial from './components/projects-3d/ShaderMaterial';
 
 function App() {
   return (
@@ -55,7 +56,8 @@ function App() {
               <Route exact path='/animation-3d/particle-wave' element={<ParticleWaves/>} />
               <Route exact path='/animation-3d/room-reflection' element={<RoomRefletion/>} />
               <Route exact path='/animation-3d/space' element={<Space/>} />
-              <Route exact path='animation-3d/terrain' element={<Terrain/>} />
+              <Route exact path='/animation-3d/terrain' element={<Terrain/>} />
+              <Route exact path='/animation-3d/shader-material' element={<ShaderMaterial/>} />
             <Route exact path="/websites/" element={<Websites />} />
           </Routes> 
           </main>

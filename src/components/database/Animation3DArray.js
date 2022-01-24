@@ -6,6 +6,7 @@ import PWImg from '../../assets/images/tileImages/ParticleWaves.jpg';
 import RRImg from '../../assets/images/tileImages/Reflection.jpg';
 import SImg from '../../assets/images/tileImages/Space.jpg';
 import TImg from '../../assets/images/tileImages/Terrain.jpg';
+import SMImg from '../../assets/images/tileImages/ShaderMaterial.jpg';
 
 let Animation3DArray = [
     {
@@ -71,6 +72,14 @@ let Animation3DArray = [
         repo: 'https://github.com/raj-randev/portfolio/blob/main/src/components/projects-3d/Terrain.js',
         image: TImg,
         description: '<p>For this 3d animation, I have used a few texture loaders to load the bird’s eye image of a mountain range on to a planeBufferGeometry. I have used a meshStandardmaterial and set its displacementMap property to the other texture loaded. This gives the birds’ eye map depth in the y-axis and gives the plane a 3d feel. The width, depth and color can be controlled by the Leva control panel in the righthand corner.</p>'
+    },
+    {
+        id: 8,
+        name: 'Shader Material',
+        path: '/animation-3d/shader-material',
+        repo: 'https://github.com/raj-randev/portfolio/blob/main/src/components/projects-3d/Terrain.js',
+        image: SMImg,
+        description: ''
     }
 ]
 export default Animation3DArray;
