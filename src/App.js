@@ -26,6 +26,7 @@ import Space from './components/projects-3d/Space';
 import Terrain from './components/projects-3d/Terrain';
 import ParticleWeb from './components/projects-2d/ParticleWeb';
 import ShaderMaterial from './components/projects-3d/ShaderMaterial';
+import LavaField from './components/projects-3d/LavaField';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
               <Route exact path='/animation-3d/space' element={<Space/>} />
               <Route exact path='/animation-3d/terrain' element={<Terrain/>} />
               <Route exact path='/animation-3d/shader-material' element={<ShaderMaterial/>} />
+              <Route exact path='/animation-3d/lava-field' element={<LavaField/>} />
             <Route exact path="/websites/" element={<Websites />} />
           </Routes> 
           </main>

@@ -7,6 +7,7 @@ import RRImg from '../../assets/images/tileImages/Reflection.jpg';
 import SImg from '../../assets/images/tileImages/Space.jpg';
 import TImg from '../../assets/images/tileImages/Terrain.jpg';
 import SMImg from '../../assets/images/tileImages/ShaderMaterial.jpg';
+import LFImg from '../../assets/images/tileImages/LavaField.jpg';
 
 let Animation3DArray = [
     {
@@ -79,6 +80,14 @@ let Animation3DArray = [
         path: '/animation-3d/shader-material',
         repo: 'https://github.com/raj-randev/portfolio/blob/main/src/components/projects-3d/ShaderMaterial.js',
         image: SMImg,
+        description: ''
+    },
+    {
+        id: 9,
+        name: 'Lava Field',
+        path: '/animation-3d/lava-field',
+        repo: 'https://github.com/raj-randev/portfolio/blob/main/src/components/projects-3d/ShaderMaterial.js',
+        image: LFImg,
         description: ''
     }
 ]
