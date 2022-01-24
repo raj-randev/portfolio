@@ -86,7 +86,7 @@ let Animation3DArray = [
         id: 9,
         name: 'Lava Field',
         path: '/animation-3d/lava-field',
-        repo: 'https://github.com/raj-randev/portfolio/blob/main/src/components/projects-3d/ShaderMaterial.js',
+        repo: 'https://github.com/raj-randev/portfolio/blob/main/src/components/projects-3d/LavaField.js',
         image: LFImg,
         description: ''
     }
