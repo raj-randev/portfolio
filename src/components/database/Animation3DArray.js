@@ -77,7 +77,7 @@ let Animation3DArray = [
         id: 8,
         name: 'Shader Material',
         path: '/animation-3d/shader-material',
-        repo: 'https://github.com/raj-randev/portfolio/blob/main/src/components/projects-3d/Terrain.js',
+        repo: 'https://github.com/raj-randev/portfolio/blob/main/src/components/projects-3d/ShaderMaterial.js',
         image: SMImg,
         description: ''
     }
