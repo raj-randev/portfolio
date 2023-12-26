@@ -65,7 +65,9 @@ let Animation2DArray = [
         path: '/animation-2d/interactive-balls',
         repo: 'https://github.com/raj-randev/Interactive-Balls',
         image: IBImg,
-        description: '<p>This 2d animation contains an array of colours, a function to state the size of the particles between a certain range and instructions on the movement of each particle. On hover, any particle that is within a 50px radius increases its size to 200px in diameter.</p>'
+        description: `<p>The provided React component, "InteractiveBalls," creates an interactive canvas animation featuring dynamically changing colored circles responding to mouse movements. The component utilizes the "leva" library for a user-friendly control panel, allowing real-time adjustment of background color and individual colors of the animated circles.</p>
+        <p>The canvas is initialized and dynamically resized based on the window dimensions. Circles, represented by the Circle class, exhibit bouncing behavior off screen edges and expand in size when the mouse is in close proximity, creating an engaging visual effect. The number and initial properties of circles vary depending on the canvas size, with more circles generated for larger screens.</p>
+        <p>The code employs event listeners for window resizing and mouse movements to trigger corresponding animations. The animation loop continually updates and redraws the circles on the canvas, resulting in a visually appealing and interactive display.</p>`
     },
     {
         id: 7,
