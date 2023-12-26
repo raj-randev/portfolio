@@ -110,6 +110,11 @@ a {
   animation: disappear 0.5s;
 }
 
+/* Toggle */
+.hamburger:hover {
+  cursor: pointer;
+}
+
 /* Nav Menu Elements */
 .navHolder {
   padding: 20px;
@@ -173,7 +178,7 @@ a.navButton p {
 
 .pageTitle h1,
 .pageTitle h3 {
-  font-weight: 100;
+  font-weight: 300;
 }
 @media (max-width: 400px) {
   .pageTitle h1, .pageTitle h3  {
@@ -265,6 +270,10 @@ a.navButton p {
 }
 
 /*Project Info & Toggle Class*/
+
+.infoLogo:hover {
+  cursor: pointer;
+}
 
 .infoLogoContainer {
   position: fixed;
