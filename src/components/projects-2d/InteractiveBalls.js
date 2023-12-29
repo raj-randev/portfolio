@@ -1,30 +1,55 @@
-import React, { useRef, useEffect } from 'react';
-import { useControls, Leva } from 'leva';
+import React, { useRef, useEffect, useState } from 'react';
+import { useControls, folder, Leva } from 'leva';
 import Animation2DArray from '../database/Animation2DArray';
 import Info from '../parts/Info';
 
-
 const InteractiveBalls = () => {
+
   const canvasRef = useRef(null);
+  const circleArrayRef = useRef([]);
+  const [isLevaCollapsed, setIsLevaCollapsed] = useState(window.innerWidth <= 400);
 
-  let mouse = {
-    x: undefined,
-    y: undefined,
-  };
 
-  let maxRadius = 40;
-  let circleArray = [];
+  const { 
+    
+    bgIB,
+    colorOneControl,
+    colorTwoControl,
+    colorThreeControl,
+    colorFourControl,
+    colorFiveControl,
+    numCircles, 
+    maxRadius, 
+    maxVelocity
+   
+  } = useControls('Control Panel', {
 
-  const { bgIB} = useControls('Control Panel', {
-    bgIB: { value: '#ffffff', label: 'Background Color' },
-  });
+    Background: folder({
+      
+      bgIB: { value: '#ffffff', label: 'Colour' },
 
-  const { colorOneControl, colorTwoControl, colorThreeControl, colorFourControl, colorFiveControl } = useControls('Circle Colours', {
-    colorOneControl: { label: 'Color One', value: '#801B14', row: 1 },
-    colorTwoControl: { label: 'Color Two', value: '#F2E4A4', row: 1 },
-    colorThreeControl: { label: 'Color Three', value: '#A19D77', row: 1 },
-    colorFourControl: { label: 'Color Four', value: '#2A2B24', row: 1 },
-    colorFiveControl: { label: 'Color Five', value: '#E0493F', row: 1 }
+    }),
+    Circles: folder({
+      
+      Colour: folder({
+      
+        colorOneControl: { label: 'One', value: '#801B14', row: 1 },
+        colorTwoControl: { label: 'Two', value: '#F2E4A4', row: 1 },
+        colorThreeControl: { label: 'Three', value: '#A19D77', row: 1 },
+        colorFourControl: { label: 'Four', value: '#2A2B24', row: 1 },
+        colorFiveControl: { label: 'Five', value: '#E0493F', row: 1 },
+  
+      }),
+
+      Configuration: folder({
+      
+        numCircles: { label: 'Number', value: 100, step: 1, min: 1, max: 150 },
+        maxRadius: { label: 'Max Radius', value: 20, step: 1, min: 1, max: 30 },
+        maxVelocity: { label: 'Max Velocity', value: 1, step: 0.1, min: 0.5, max: 10 },
+  
+      }),
+
+    }),
   });
 
   useEffect(() => {
@@ -41,7 +66,21 @@ const InteractiveBalls = () => {
       colorFiveControl,
     ];
 
+    let mouse = {
+      x: undefined,
+      y: undefined,
+    };
+
+    let maxRadiusGrowth = 40; 
+
     const handleResize = () => {
+
+      if (window.innerWidth <= 400) {
+        setIsLevaCollapsed(true);
+      } else {
+        setIsLevaCollapsed(false);
+      }
+
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       init();
@@ -52,9 +91,6 @@ const InteractiveBalls = () => {
       mouse.y = event.y;
     };
 
-    /**
-     * Circle Class Constructor
-     */
     function Circle(x, y, dx, dy, radius) {
       this.x = x;
       this.y = y;
@@ -72,12 +108,10 @@ const InteractiveBalls = () => {
       };
 
       this.update = function () {
-        // Bounce off the right or left side of the screen
         if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
           this.dx = -this.dx;
         }
 
-        // Bounce off the top or the bottom of the screen
         if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
           this.dy = -this.dy;
         }
@@ -91,7 +125,7 @@ const InteractiveBalls = () => {
           mouse.y - this.y < 50 &&
           mouse.y - this.y > -50
         ) {
-          if (this.radius < maxRadius) {
+          if (this.radius < maxRadiusGrowth) {
             this.radius += 1;
           }
         } else if (this.radius > this.minRadius) {
@@ -103,49 +137,53 @@ const InteractiveBalls = () => {
     }
 
     const init = () => {
-      circleArray = [];
+      circleArrayRef.current = [];
       if (canvas.width <= 400) {
-        for (let i = 0; i < 200; i++) {
-          let radius = Math.ceil(Math.random() * 10 + 1);
+        for (let i = 0; i < numCircles; i++) {
+          let radius = Math.ceil(Math.random() * maxRadius + 1);
           let x = Math.random() * (canvas.width - radius * 2) + radius;
           let y = Math.random() * (canvas.height - radius * 2) + radius;
-          let dx = (Math.random() - 0.5) * 2;
-          let dy = (Math.random() - 0.5) * 2;
-          circleArray.push(new Circle(x, y, dx, dy, radius));
+          let dx = (Math.random() - 0.5) * maxVelocity;
+          let dy = (Math.random() - 0.5) * maxVelocity;
+          circleArrayRef.current.push(new Circle(x, y, dx, dy, radius));
         }
       } else {
-        for (let i = 0; i < 800; i++) {
-          let radius = Math.ceil(Math.random() * 10 + 1);
+        for (let i = 0; i < numCircles; i++) {
+          let radius = Math.ceil(Math.random() * maxRadius + 1);
           let x = Math.random() * (canvas.width - radius * 2) + radius;
           let y = Math.random() * (canvas.height - radius * 2) + radius;
-          let dx = (Math.random() - 0.5) * 2;
-          let dy = (Math.random() - 0.5) * 2;
-          circleArray.push(new Circle(x, y, dx, dy, radius));
+          let dx = (Math.random() - 0.5) * maxVelocity;
+          let dy = (Math.random() - 0.5) * maxVelocity;
+          circleArrayRef.current.push(new Circle(x, y, dx, dy, radius));
+
         }
       }
     };
 
-    /**
-     * Event Listeners
-     */
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', mouseMovement);
 
     init();
 
-    /**
-     * Animate Function
-     */
     const animate = () => {
       requestAnimationFrame(animate);
       c.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < circleArray.length; i++) {
-        circleArray[i].update();
+      for (let i = 0; i < circleArrayRef.current.length; i++) {
+        circleArrayRef.current[i].update();
       }
     };
 
     animate();
-  }, [colorOneControl, colorTwoControl, colorThreeControl, colorFourControl, colorFiveControl]);
+  }, [
+    colorOneControl,
+    colorTwoControl,
+    colorThreeControl,
+    colorFourControl,
+    colorFiveControl,
+    numCircles,
+    maxRadius,
+    maxVelocity,
+  ]);
 
   return (
     <div className="project">
@@ -158,7 +196,7 @@ const InteractiveBalls = () => {
         repoAddress={Animation2DArray[6].repo}
         text={Animation2DArray[6].description}
       />
-      <Leva collapsed={true} />
+      <Leva collapsed={isLevaCollapsed} />
     </div>
   );
 };

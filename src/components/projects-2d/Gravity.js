@@ -1,17 +1,55 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import randomColor from '../../utilities/randomColor';
 import randomIntFromRange from '../../utilities/randomIntFromRange';
-import { useControls, Leva } from 'leva';
+import { useControls, folder, Leva } from 'leva';
 import Animation2DArray from '../database/Animation2DArray';
 import Info from '../parts/Info';
 
 const Gravity = () => {
     
     const canvasRef = useRef(null);
+    const [isLevaCollapsed, setIsLevaCollapsed] = useState(window.innerWidth <= 400);
 
-    const { bgG } = useControls('Control Panel',{ 
+    const { 
 
-      bgG: { value: '#ffffff', label: 'Background Color' },
+      bgG,
+      colorOneControl,
+      colorTwoControl,
+      colorThreeControl,
+      colorFourControl,
+      numCircles,
+      maxRadius,
+      circleGravity,
+      circleFriction,
+
+     } = useControls('Control Panel',{ 
+
+      Background: folder({
+
+        bgG: { value: '#ffffff', label: 'Colour' },
+  
+      }),
+
+      Circle: folder({
+
+        numCircles: { label: 'Number', value: 100, step: 1 },
+        maxRadius: { label: 'L Radius', value: 40, step: 1 },
+        Colours: folder({
+
+          colorOneControl: { label: 'One', value: '#353535', row: 1 },
+          colorTwoControl: { label: 'Two', value: '#3c6e71', row: 1 },
+          colorThreeControl: { label: 'Three', value: '#d9d9d9', row: 1 },
+          colorFourControl: { label: 'Four', value: '#284b63', row: 1 },
+
+        }),
+        Forces: folder({
+
+          circleGravity: { label: 'Gravity', value: 1, step: 0.1, min: 0.1, max: 10 },
+          circleFriction: { label: 'Friction', value: 0.9, step: 0.05, min: 0.05, max: 1 },
+
+        }),
+
+      })
 
     })
 
@@ -30,6 +68,12 @@ const Gravity = () => {
        */
 
       const handleResize = () => {
+
+        if (window.innerWidth <= 400) {
+          setIsLevaCollapsed(true);
+        } else {
+          setIsLevaCollapsed(false);
+        }
 
         canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -60,18 +104,19 @@ const Gravity = () => {
       //Array of colours to choose from
       let colors = [
 
-        '#2185C5', 
-        '#7ECEFD', 
-        '#FFF6E5', 
-        '#FF7F66'
+        colorOneControl,
+        colorTwoControl,
+        colorThreeControl,
+        colorFourControl,
   
       ]
   
       //Gravity to a constant
-      let gravity = 1;
+      let gravity = circleGravity;
+
   
       //Friction set as a fraction: it is maultiplied by the speed each time to casue an eventual stop
-      let friction = 0.9;
+      let friction = circleFriction;
   
       //Array for the balls to live in
       let ballArray;
@@ -141,9 +186,9 @@ const Gravity = () => {
         
         if (canvas.width <= 400) {
           //Indicates the number of ball wanted on the screen
-          for (let i = 0; i < 50; i++) {
+          for (let i = 0; i < (numCircles/2); i++) {
   
-            let radius = randomIntFromRange(10, 25);
+            let radius = randomIntFromRange(10, (maxRadius/2));
             let x = randomIntFromRange(radius, canvas.width - radius); 
             let y = randomIntFromRange(radius, canvas.height - radius);
             let dx = randomIntFromRange(-5, 5);
@@ -154,9 +199,9 @@ const Gravity = () => {
     
           }
         } else {
-          for (let i = 0; i < 100; i++) {
+          for (let i = 0; i < numCircles; i++) {
   
-            let radius = randomIntFromRange(10, 40);
+            let radius = randomIntFromRange(10, maxRadius);
             let x = randomIntFromRange(radius, canvas.width - radius); 
             let y = randomIntFromRange(radius, canvas.height - radius);
             let dx = randomIntFromRange(-5, 5);
@@ -182,7 +227,16 @@ const Gravity = () => {
 
       animate();
       
-    }, []) 
+    }, [
+      colorOneControl,
+      colorTwoControl,
+      colorThreeControl,
+      colorFourControl,
+      maxRadius,
+      numCircles,
+      circleGravity,
+      circleFriction,
+    ]) 
 
     
 
@@ -199,7 +253,7 @@ const Gravity = () => {
 
         <Info title={Animation2DArray[1].name} repoAddress={Animation2DArray[1].repo} text={Animation2DArray[1].description} />
 
-        <Leva collapsed={true} />
+        <Leva collapsed={isLevaCollapsed} />
 
       </div>  
       

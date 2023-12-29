@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import distance from '../../utilities/distance';
 import randomColor from '../../utilities/randomColor';
 import resolveCollision from '../../utilities/resolveCollision';
 import randomIntFromRange from '../../utilities/randomIntFromRange';
-import { useControls, Leva } from 'leva';
+import { useControls, folder, Leva } from 'leva';
 import Animation2DArray from '../database/Animation2DArray';
 import Info from '../parts/Info';
 
@@ -11,16 +11,51 @@ import Info from '../parts/Info';
 const CollisionDetector= () => {
     
     const canvasRef = useRef(null);
+    const [isLevaCollapsed, setIsLevaCollapsed] = useState(window.innerWidth <= 400);
 
     /**
      * Leva Control Panel
      */
 
-    const { bgCD } = useControls('Control Panel',{ 
+    const { 
 
-      bgCD: { value: '#ffffff', label: 'Background Color' },
+      bgCD,
+      colorOneControl,
+      colorTwoControl,
+      colorThreeControl,
+      numParticles, 
+      particleRadius, 
+      particleMass
 
-    }) 
+     } = useControls('Control Panel',{ 
+
+      Background: folder({
+      
+        bgCD: { value: '#f4f2ef', label: 'Colour' },
+  
+      }),
+
+      Particle: folder({
+        
+        Colour: folder({
+        
+          colorOneControl: { label: 'One', value: '#213e60', row: 1 },
+          colorTwoControl: { label: 'Two', value: '#e68c3a', row: 1 },
+          colorThreeControl: { label: 'Three', value: '#94b6ef', row: 1 },
+    
+        }),
+
+        Configurations: folder({
+        
+          numParticles: { label: 'Number', value: 100, step: 1, min: 1, max: 100 },
+          particleRadius: { label: 'Radius', value: 15, step: 1, min: 1, max: 30 },
+          particleMass: { label: 'Mass', value: 2, step: 0.1, min: 0.1, max: 5 },
+    
+        }),
+        
+      }),
+
+    })
 
     useEffect(() =>{
 
@@ -37,6 +72,12 @@ const CollisionDetector= () => {
        */
 
       const handleResize = () => {
+
+        if (window.innerWidth <= 400) {
+          setIsLevaCollapsed(true);
+        } else {
+          setIsLevaCollapsed(false);
+        }
 
         canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -84,7 +125,11 @@ const CollisionDetector= () => {
       }
   
       //Array of colours to choose from
-      const colors = ['#2185C5', '#7ECEFD', '#FF7F66']
+      const colors = [
+        colorOneControl,
+        colorTwoControl,
+        colorThreeControl,
+      ]
   
       //Empty Array declaration
       let particles = []
@@ -106,7 +151,7 @@ const CollisionDetector= () => {
           }
           this.radius = radius
           this.color = randomColor(colors)
-          this.mass = 2
+          this.mass = particleMass
           this.opacity = 0
           
           //Function to update the location of particle
@@ -169,9 +214,9 @@ const CollisionDetector= () => {
         particles = []
        
         //Creating 100 circles using a for loop
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < numParticles; i++) {
   
-          const radius = 15
+          const radius = particleRadius
           let x = randomIntFromRange(radius, canvas.width - radius)
           let y = randomIntFromRange(radius, canvas.height - radius)
           
@@ -205,7 +250,14 @@ const CollisionDetector= () => {
 
       animate();
       
-    }, []) 
+    }, [
+      colorOneControl,
+      colorTwoControl,
+      colorThreeControl,
+      numParticles, 
+      particleRadius,
+      particleMass,
+    ]) 
 
     
 
@@ -221,7 +273,7 @@ const CollisionDetector= () => {
 
         <Info title={Animation2DArray[4].name} repoAddress={Animation2DArray[4].repo} text={Animation2DArray[4].description} />
 
-        <Leva collapsed={true}/>
+        <Leva collapsed={isLevaCollapsed}/>
 
       </div>
 

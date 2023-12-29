@@ -1,13 +1,35 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import randomColor from '../../utilities/randomColor';
 import randomIntFromRange from '../../utilities/randomIntFromRange';
 import Animation2DArray from '../database/Animation2DArray';
 import Info from '../parts/Info';
+import { useControls, folder, Leva } from 'leva';
+
 
 
 const CircularSpins = () => {
     
     const canvasRef = useRef(null);
+    const [isLevaCollapsed, setIsLevaCollapsed] = useState(window.innerWidth <= 400);
+
+    const {
+      colorOneControl,
+      colorTwoControl,
+      colorThreeControl,
+      colorFourControl,
+      colorFiveControl
+    } = useControls('Control Panel', {
+      Particle: folder ({
+        Colours: folder ({
+          colorOneControl: { label: 'One', value: '#bee9e8', row: 1 },
+          colorTwoControl: { label: 'Two', value: '#62b6cb', row: 1 },
+          colorThreeControl: { label: 'Three', value: '#1b4965', row: 1 },
+          colorFourControl: { label: 'Four', value: '#cae9ff', row: 1 },
+          colorFiveControl: { label: 'Five', value: '#5fa8d3', row: 1 },
+        })
+      })
+      
+    });
 
     useEffect(() =>{
 
@@ -24,6 +46,12 @@ const CircularSpins = () => {
        */
 
       const handleResize = () => {
+
+        if (window.innerWidth <= 400) {
+          setIsLevaCollapsed(true);
+        } else {
+          setIsLevaCollapsed(false);
+        }
 
         canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -75,7 +103,14 @@ const CircularSpins = () => {
       }
   
       //Array of colours to choose from
-      const colors = ['#2185C5', '#7ECEFD', '#FFF6E5', '#FF7F66']
+      const colors = [
+
+        colorOneControl,
+        colorTwoControl,
+        colorThreeControl,
+        colorFourControl,
+        colorFiveControl,
+      ]
   
       //Empty Array declaration
       let particles = []
@@ -95,7 +130,7 @@ const CircularSpins = () => {
           this.color = color
           this.radians = Math.random() * Math.PI * 2 
           this.velocity = 0.07 
-          this.distanceFromCenter = randomIntFromRange(50, 200) 
+          this.distanceFromCenter = randomIntFromRange(50, 350) 
           this.lastMouse = {
   
             x: x,
@@ -185,7 +220,13 @@ const CircularSpins = () => {
 
       animate();
       
-    }, []) 
+    }, [
+        colorOneControl,
+        colorTwoControl,
+        colorThreeControl,
+        colorFourControl,
+        colorFiveControl,
+    ]) 
 
 
     return (
@@ -199,6 +240,8 @@ const CircularSpins = () => {
         <canvas ref={canvasRef}  ></canvas>
 
         <Info title={Animation2DArray[3].name} repoAddress={Animation2DArray[3].repo} text={Animation2DArray[3].description} />
+
+        <Leva collapsed={isLevaCollapsed} />
 
       </div>
   )

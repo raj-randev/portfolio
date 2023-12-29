@@ -1,18 +1,26 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Animation2DArray from '../database/Animation2DArray';
 import Info from '../parts/Info';
-import { useControls, Leva } from 'leva';
+import { useControls, folder, Leva } from 'leva';
 
 const RedBloodCells = () => {
   const canvasRef = useRef(null);
+  const [isLevaCollapsed, setIsLevaCollapsed] = useState(window.innerWidth <= 400);
+
 
   // Leva Control Panel
   const { bgRBC, color, radius, numberOfCircles, circleVelocity } = useControls('Control Panel', {
-    bgRBC: { value: '#ffffff', label: 'Background Color' },
-    color: { value: { r: 255, g: 0, b: 0, a: 0.5 }, label: 'Circle Color' }, // Use an object for color
-    radius: { value: 15, label: 'Circle Radius', min: 1, max: 50 },
-    numberOfCircles: { value: 100, label: 'Number of Circles', min: 1, max: 500 },
-    circleVelocity: { value: 4, label: 'Circle Velocity', min: 1, max: 10 },
+    Background: folder({
+      
+      bgRBC: { value: '#ffffff', label: 'Colour' },
+
+    }),
+    Circle: folder({
+      color: { value: { r: 255, g: 0, b: 0, a: 0.5 }, label: 'Colour' }, // Use an object for color
+      radius: { value: 30, label: 'Radius', min: 1, max: 50 },
+      numberOfCircles: { value: 100, label: 'Number', min: 1, max: 500 },
+      circleVelocity: { value: 1, label: 'Velocity', min: 1, max: 10 },
+    }),
   });
 
   useEffect(() => {
@@ -24,6 +32,12 @@ const RedBloodCells = () => {
 
     // Resize & Reinitialize
     const handleResize = () => {
+      if (window.innerWidth <= 400) {
+        setIsLevaCollapsed(true);
+      } else {
+        setIsLevaCollapsed(false);
+      }
+
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       init();
@@ -103,7 +117,7 @@ const RedBloodCells = () => {
       </div>
       <canvas style={{ backgroundColor: bgRBC }} ref={canvasRef}></canvas>
       <Info title={Animation2DArray[0].name} repoAddress={Animation2DArray[0].repo} text={Animation2DArray[0].description} />
-      <Leva collapsed={true} />
+      <Leva collapsed={isLevaCollapsed} />
     </div>
   );
 };

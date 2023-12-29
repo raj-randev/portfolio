@@ -1,12 +1,47 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import randomColor from '../../utilities/randomColor';
 import randomIntFromRange from '../../utilities/randomIntFromRange';
 import Animation2DArray from '../database/Animation2DArray';
 import Info from '../parts/Info';
+import { useControls, folder, Leva } from 'leva';
+import hexToRgb from '../../utilities/hexToRGB';
+
 
 const GalacticSwirl = () => {
     
     const canvasRef = useRef(null);
+    const [isLevaCollapsed, setIsLevaCollapsed] = useState(window.innerWidth <= 400);
+
+    const { 
+      
+      bgG,
+      colorOneControl,
+      colorTwoControl,
+      colorThreeControl,
+      colorFourControl,
+    
+    } = useControls('Control Panel',{ 
+
+      Background: folder({
+      
+        bgG: { value: '#000000', label: 'Colour' },
+  
+      }),
+
+      Stars: folder({
+
+        Colour: folder({
+      
+          colorOneControl: { label: 'One', value: '#2185C5', row: 1 },
+          colorTwoControl: { label: 'Two', value: '#7ECEFD', row: 1 },
+          colorThreeControl: { label: 'Three', value: '#FFF6E5', row: 1 },
+          colorFourControl: { label: 'Four', value: '#FF7F66', row: 1 },
+    
+        }),
+        
+      }),
+
+    })
 
     useEffect(() => {
 
@@ -23,6 +58,12 @@ const GalacticSwirl = () => {
        */
 
       const handleResize = () => {
+
+        if (window.innerWidth <= 400) {
+          setIsLevaCollapsed(true);
+        } else {
+          setIsLevaCollapsed(false);
+        }
 
         canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -42,6 +83,12 @@ const GalacticSwirl = () => {
 
       }
 
+      const touchStart = () => {
+
+        mouseDown = true;
+
+      };
+      
 
       /**
        * Mouse Release function
@@ -53,6 +100,12 @@ const GalacticSwirl = () => {
 
       }
 
+      const touchEnd = () => {
+
+        mouseDown = false;
+        
+      };
+
 
       /**
        * Animate Function
@@ -62,7 +115,7 @@ const GalacticSwirl = () => {
 
         requestAnimationFrame(animate)
 
-        c.fillStyle = `rgba(10, 10, 10, ${alpha})`
+        c.fillStyle = `rgba(${hexToRgb(bgG)}, ${alpha})`
 
         //Fills the previous frame with black background
         c.fillRect(0, 0, canvas.width, canvas.height)
@@ -92,7 +145,12 @@ const GalacticSwirl = () => {
       }
       
       //Array of colours to choose from
-      const colors = ['#2185C5', '#7ECEFD', '#FFF6E5', '#FF7F66']
+      const colors = [
+        colorOneControl,
+        colorTwoControl,
+        colorThreeControl,
+        colorFourControl,
+      ]
 
       //sets mouse down to initially be false
       let mouseDown = false
@@ -170,12 +228,20 @@ const GalacticSwirl = () => {
       window.addEventListener('ontouchstart', mouseClick);
       window.addEventListener('mousedown', mouseClick);
       window.addEventListener('mouseup', mouseRelease);
+      window.addEventListener('touchstart', touchStart);
+      window.addEventListener('touchend', touchEnd);
 
       init();
 
       animate();
       
-    }, []) 
+    }, [
+      bgG,
+      colorOneControl,
+      colorTwoControl,
+      colorThreeControl,
+      colorFourControl,
+    ]) 
 
     
 
@@ -191,6 +257,8 @@ const GalacticSwirl = () => {
         <canvas ref={canvasRef} ></canvas>
 
         <Info title={Animation2DArray[5].name} repoAddress={Animation2DArray[5].repo} text={Animation2DArray[5].description} />
+
+        <Leva collapsed={isLevaCollapsed} />
 
       </div>  
 

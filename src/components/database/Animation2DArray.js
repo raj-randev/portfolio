@@ -17,7 +17,7 @@ let Animation2DArray = [
         path: '/animation-2d/red-blood-cells',
         repo: 'https://github.com/raj-randev/Red-Blood-Cells',
         image: BDImg,
-        description: '<p>The provided React code represents a visual simulation of red blood cells using the HTML5 canvas element. It utilizes the Leva library for creating a dynamic control panel, allowing real-time adjustments to various parameters. The simulation consists of colorful circles (representing red blood cells) moving across the canvas. The Leva control panel includes settings for the background color, circle color, circle radius, the number of circles, and the velocity of their movement. Notably, the color parameter is represented as an object, enabling separate control over the red, green, blue, and alpha (opacity) components of the circle color. This alpha control introduces transparency to the circles, providing a captivating visual effect. The code employs classes to encapsulate the logic for creating and updating the circles, with features such as collision detection to ensure they bounce off the canvas boundaries. Overall, this code serves as an interactive and customizable simulation, offering a hands-on experience in manipulating visual elements through a user-friendly control panel.</p>'
+        description: `<p>The animation is achieved by updating the position of each circle in the animate function. Particularly, the this.update method within the Circle class ensures that each circle (blood cell) bounces off the canvas edges when reaching them. The code segment you highlighted controls the circular motion, reversing the velocity (dx and dy) of a blood cell when it hits the canvas boundaries. The cells move smoothly, responding to the environment's edges and updating their positions based on their velocity and the specified circleVelocity. The draw method visualizes the circles on the canvas, creating a dynamic and visually appealing simulation of red blood cells in motion.</p>`
     },
     {
         id: 1,
@@ -25,7 +25,9 @@ let Animation2DArray = [
         path: '/animation-2d/gravity',
         repo: 'https://github.com/raj-randev/Gravity',
         image: GImg,
-        description: '<p>For this 2d animation, I used a for loop to create 100 circles. I used a random value function to set the radius of each circle between 10-40px. I used the same function to set the x and y positions of each circle between the canvas. This function also worked to produce a velocity between –5 and 5. This allows the circle to travel in all directions. The <span class="code whiteFont blackBackground"><span class="yellowFont">randomColor</span>()</span> function runs through an array of colours and displays it within the animation. The gravity variable is set to 1 and acts as a constant. To slow the circles down, the variable friction is multiplied with gravity every second. Friction is set to 0.9 and results in the circle slowing to a standstill. </p>'
+        description: `<p>The "Gravity" animation creates an engaging visual experience with bouncing balls influenced by gravity and friction. The Leva library is utilized for an interactive control panel to tweak various parameters in real-time. The canvas adapts to the window size, and users can click to reinitialize the animation.</p>
+                    <p>The critical section, this.update, governs the ball's motion. The up-and-down movement is controlled by gravity, impacting the ball's ascent and descent. Upon hitting the canvas bottom, the ball's upward velocity is reversed and reduced, simulating a bounce with diminishing height. The side-to-side movement is influenced by friction, gradually slowing down the ball's horizontal speed. Additionally, if the ball hits the canvas boundaries horizontally, its direction is reversed, creating a bouncing effect.</p>
+                    <p>The animation features colorful balls, with parameters like the number of circles, maximum radius, gravity strength, and friction factor adjustable via the Leva control panel. Notably, the Leva collapse state dynamically adapts based on window width, enhancing the user experience for different screen sizes.</p>`,
     },
     {
         id: 2,
@@ -33,7 +35,10 @@ let Animation2DArray = [
         path: '/animation-2d/falling-star',
         repo: 'https://github.com/raj-randev/falling-star',
         image: FSImg,
-        description: '<p>For this animation, white circles are created outside of the canvas and have the force of gravity added to them. Once the circle meets the floor and walls, it gets removed from the circle array and 8 smaller circles are added. These 8 circles have a random velocity added to them and move in a different direction as a result. When the 8 circles hit the floor or sides, they are removed from the array, 8 more smaller circles are created. There is an if/else statement to remove all circles completely once they are below a certain size.</p>'
+        description: `<p>The provided React code creates an animated falling star simulation using HTML5 Canvas. The FallingStar component initializes a canvas and renders a dynamic scene featuring a night sky with shooting stars, mountains, and a ground. The canvas adjusts to window resizing, and the stars exhibit realistic behaviors such as shattering upon reaching the ground.</p>
+                    <p>The animation is achieved through the Star class, representing large shooting stars, and the MiniStar class, representing smaller fragments created upon star shattering. The stars move with a combination of gravity and friction, creating a visually appealing effect. The background includes a gradient to simulate a night sky, and there are randomly generated background stars for added realism.</p>
+                    <p>The createMountainRange function draws mountain ranges of varying heights and colors, contributing to the overall scenic landscape. The initialization function (init) populates the scene with a predefined number of stars, mini stars, and background stars.</p>
+                    <p>The project title, description, and a link to the repository are displayed above the canvas. The code utilizes event listeners for window resizing to ensure responsiveness. Overall, the code provides an engaging and visually captivating simulation of falling stars against a night sky.</p>`
     },
     {
         id: 3,
@@ -41,7 +46,9 @@ let Animation2DArray = [
         path: '/animation-2d/circular-spins',
         repo: 'https://github.com/raj-randev/Circular-Spins',
         image: CSImg,
-        description: '<p>This animation requires several variables. The particles starting points (which begins in the centre of the canvas), a radius to dictate the thickness of each particle, a colour array to instruct the colour of the particle and a <span class="code whiteFont blackBackground"><span class="yellowFont">randomIntFromRange</span>()</span> function to dictate the distance from the center of the circle. For the particles to move in a circular motion, <span class="code whiteFont blackBackground"><span class="lightBlueFont">Math</span>.<span class="yellowFont">PI</span></span> is multiplied by 2 and is added to a velocity of 0.07. This is put in an update function and is called on every frame. The canvas fillRect is also updated on each frame and because it has an opaque white background, results in each particle leaving a tail behind it. </p>'
+        description: `<p>The "CircularSpins" animation creates an immersive visual display of gracefully orbiting particles on a canvas. Utilizing React and the Leva library for dynamic parameter control, the animation adapts to various screen sizes, offering an interactive and engaging experience.</p>
+                    <p>The crucial section, this.update, orchestrates the circular motion of each particle. The radians attribute is manipulated by the velocity, introducing circular movement. Smoothing functions are applied to enhance the particle's motion on both the x-axis and y-axis. The lastMouse object records the previous mouse position, and the particle's current position is calculated based on these parameters. The resulting effect is a mesmerizing pattern of particles orbiting a central point.</p>
+                    <p>The Leva control panel allows users to customize particle colors, providing a dynamic and visually appealing aspect to the animation. The collapse state of the Leva panel dynamically adjusts based on the window width, ensuring optimal user experience across different devices.</p>`
     },
     {
         id: 4,
@@ -49,7 +56,10 @@ let Animation2DArray = [
         path: '/animation-2d/collision-detector',
         repo: 'https://github.com/raj-randev/Collision-Detector',
         image: CDImg,
-        description: '<p>For this 2d animation, we have particles that have weight. Along with movement, each particle passes on its velocity when it meets other moving particles. The fillStyle of each particle is affected by the mouse hovering over it with a 200px diameter. To get a realistic collision between the particles, the <span class="code whiteFont blackBackground"><span class="yellowFont">resolveCollision</span>()</span> function is used to calculate the physics between each interaction.</p>'
+        description: `<p>The "CollisionDetector" animation demonstrates a mesmerizing particle simulation with collision detection and resolution on a dynamic canvas. Leveraging React and the Leva library for real-time parameter adjustments, this interactive experience adapts to diverse screen sizes.</p>
+                    <p>The heart of the code lies in the resolveCollision function, which meticulously handles particle collisions. By calculating the velocity differences and distances between colliding particles, the function ensures a realistic bounce effect. It employs vector rotations to compute the final velocities after the collision, preventing particle overlap and simulating an accurate collision response.</p>
+                    <p>The Leva control panel empowers users to customize the animation by adjusting background color, particle colors, and essential parameters like the number of particles, particle radius, and mass. The panel dynamically collapses on smaller screens, optimizing user interaction.</p>
+                    <p>The animation is enriched with visual details such as color transitions on hover and boundary reflections, creating a captivating and responsive particle playground.</p>`
     },
     {
         id: 5,
@@ -57,7 +67,9 @@ let Animation2DArray = [
         path: '/animation-2d/galactic-swirl',
         repo: 'https://github.com/raj-randev/Galactic-Swirl',
         image: GSImg,
-        description: '<p>This 2d animation consists of a black canvas and multiple particles. The particle uses a selection of colours from an array. The particles are randomly placed within the canvas area and are set on rotation. <span class="code whiteFont blackBackground"><span class="lightBlueFont">Math</span>.<span class="yellowFont">random</span>()</span> multiplied by <span class="code whiteFont blackBackground">( <span class="lightGreenFont">2</span> * <span class="lightBlueFont">Math</span>.<span class="yellowFont">PI</span> )</span> sets the movement on a circle and each frame is updated by adding 0.01 to this value. To ensure the particles go beyond the visible canvas, extra width is added to all sides. The alpha value for the black background colour decreases with and a mouseDown event and increases with a mouseUp event. This gives the effect of a trail behind each particle.</p>'
+        description: `<p>The "GalacticSwirl" animation is a visually stunning celestial display, where particles gracefully orbit a central point, creating a mesmerizing galactic effect. Built with React and enhanced by the Leva library for dynamic parameter adjustments, this interactive experience responds to user input.</p>
+                    <p>The code features a distinctive interaction where holding down the mouse click initiates a captivating effect. The mouseDown and mouseRelease functions precisely handle this interaction. When the mouse is pressed, the animation enters a dynamic state, altering the background rotation and introducing a trail effect. Upon releasing the mouse, the animation gracefully returns to its original state, smoothly fading out the trail.</p>
+                    <p>The Leva control panel empowers users to customize the animation by adjusting background color and particle colors, offering an engaging and interactive exploration of the galactic swirl. The animation's fluidity and responsiveness make it an immersive visual journey, capturing the essence of a cosmic dance.</p>`
     },
     {
         id: 6,
@@ -65,9 +77,11 @@ let Animation2DArray = [
         path: '/animation-2d/interactive-balls',
         repo: 'https://github.com/raj-randev/Interactive-Balls',
         image: IBImg,
-        description: `<p>The provided React component, "InteractiveBalls," creates an interactive canvas animation featuring dynamically changing colored circles responding to mouse movements. The component utilizes the "leva" library for a user-friendly control panel, allowing real-time adjustment of background color and individual colors of the animated circles.</p>
-        <p>The canvas is initialized and dynamically resized based on the window dimensions. Circles, represented by the Circle class, exhibit bouncing behavior off screen edges and expand in size when the mouse is in close proximity, creating an engaging visual effect. The number and initial properties of circles vary depending on the canvas size, with more circles generated for larger screens.</p>
-        <p>The code employs event listeners for window resizing and mouse movements to trigger corresponding animations. The animation loop continually updates and redraws the circles on the canvas, resulting in a visually appealing and interactive display.</p>`
+        description: `<p>The "InteractiveBalls" component creates an animated canvas with interactive circles. The Leva library is used for easy parameter adjustments. The circles grow when the mouse is near and shrink when the mouse moves away.</p>
+                    <p>The code utilizes React, Leva for controls, and HTML canvas for rendering. It maintains an array of circles with random sizes, velocities, and colors. The animation responds to window resizing, ensuring it adapts to various screen sizes.</p>
+                    <p>The crucial logic lies in the circle's update method, specifically the condition checking the proximity of the mouse to each circle</p>
+                    <p>This code segment checks if the mouse is within a certain range of a circle. If true, and the circle's radius is below a maximum growth limit (maxRadiusGrowth), the radius increases, creating a visual effect of the circle expanding. If false and the circle's radius is above its minimum allowed size (minRadius), the radius decreases, simulating a shrinkage effect.</p>
+                    <p>This interactive behavior provides an engaging user experience, allowing users to influence the visual elements on the canvas by moving their mouse.</p>`
     },
     {
         id: 7,
@@ -83,7 +97,10 @@ let Animation2DArray = [
         path: '/animation-2d/repel-particles',
         repo: 'https://github.com/raj-randev/Repel-Particles',
         image: RPPImg,
-        description: '<p>For this 2d animation, I have placed 1500 particles randomly between the canvas\'s width and height. I’ve stored the current x and y values for the mouse in a variable and use a mouse move event listener to update that value. In order to produce the repel action, the mouse has a radius of 250px and the particles move at different speeds to reach the circumference of the circle.</p>'
+        description: `<p>The "RepelParticles" component creates an interactive canvas where particles are repelled by the mouse cursor. Leva is used for control parameters, and React manages the component lifecycle. The particles are dynamically updated based on the mouse position, adjusting their positions to create a repulsion effect.</p>
+                    <p>The key logic is within the update() method of the Particle class.</p>
+                    <p>This method calculates the distance between the particle and the mouse cursor, determining the force and direction needed for repulsion. If the particle is within the specified mouse.radius, it adjusts its position away from the mouse cursor. Otherwise, it returns to its original position.</p>
+                    <p>This interactive behavior provides a visually engaging and responsive user experience, where particles dynamically respond to the mouse movement, creating a repelling effect on the canvas.</p>`
     },
     {
         id: 9,
@@ -91,7 +108,10 @@ let Animation2DArray = [
         path: '/animation-2d/sine-waves',
         repo: 'https://github.com/raj-randev/sine-waves',
         image: SWImg,
-        description: '<p>For this 2d animation, we start off with a lineTo line from the halfway point of the canvas height that goes the width of the canvas. To give the line a wave, we need to affect each pixel of the line. We can do this by running the lineTo through a for loop by the width of the canvas. We then multiply the start point by <span class="code whiteFont blackBackground"><span class="lightBlueFont">Math</span>.<span class="yellowFont">sin</span>()</span> over every iteration and this produces a tight and small wavy line. In order to make our wave bigger in length, we add <span class="code whiteFont blackBackground">{ <span class="lightBlueFont">i</span> * <span class="darkBlueFont">wave</span>.<span class="lightBlueFont">length</span> }</span> argument the  <span class="code whiteFont blackBackground"><span class="lightBlueFont">Math</span>.<span class="yellowFont">sin</span>()</span> function. We add an increment value inside of the argument and this give the wave horizontal movement on each frame of animation. To give the wave height, we multiply everything by a wave.amplitude variable. Finally, to give the wave dynamic movement, we multiply everything by Math.sin(increment). The whole equation looks like this <span class="code whiteFont blackBackground">{ <span class="lightBlueFont">c</span>.<span class="yellowFont">lineTo</span>(<span class="lightBlueFont">i</span>, <span class="darkBlueFont">wave</span>.<span class="lightBlueFont">y</span> + <span class="lightBlueFont">Math</span>.<span class="yellowFont">sin</span>(<span class="lightBlueFont">i</span> * <span class="darkBlueFont">wave</span>.<span class="lightBlueFont">length</span> + <span class="lightBlueFont">increment</span>) * <span class="darkBlueFont">wave</span>.<span class="lightBlueFont">amplitude</span> * <span class="lightBlueFont">Math</span>.<span class="yellowFont">sin</span>(<span class="lightBlueFont">increment</span>));}</span></p>'
+        description: `<p>The SineWaves component in your React application creates an animated visual representation of sine waves on an HTML canvas. It utilizes the Leva library for a control panel that allows dynamic adjustments to various parameters, enhancing user interactivity. The waves are drawn with a dynamically changing background color, stroke color, and properties such as length, amplitude, and frequency.</p>
+                    <p>The useControls hook from Leva provides sliders and color pickers to adjust parameters like background color, alpha transparency, wave length, amplitude, and frequency in real-time. The canvas is resized to match the window dimensions, ensuring a responsive layout.</p>
+                    <p>Within the animate function, a sine wave is drawn on the canvas using the Math.sin function, and the color of the wave dynamically changes based on its position. The animation is achieved by continuously updating the canvas in response to the requestAnimationFrame loop, creating smooth and visually appealing sine wave patterns.</p>
+                    <p>This component not only showcases an interactive visual effect but also demonstrates the power of Leva for creating a user-friendly control panel to manipulate and experiment with different parameters, making it an engaging and customizable experience for users exploring the sine wave animation.</p>`
     },
     {
         id: 10,
@@ -99,7 +119,11 @@ let Animation2DArray = [
         path: '/animation-2d/particle-web',
         repo: 'https://github.com/raj-randev/Particle-Web',
         image: PWImg,
-        description: ''
+        description: `<p>The code defines a React component named ParticleWeb, which uses the Leva library for a control panel and renders a canvas displaying an interactive particle system. The particle system consists of randomly generated particles that move around the canvas, and connections are drawn between particles based on their proximity.</p>
+                    <p>The Leva library is utilized to provide a control panel with sliders to adjust parameters such as background color, particle color, number of particles, and particle radius.</p>
+                    <p>In the connect function, each particle is iterated over, and connections are drawn between particles that are within a certain distance threshold. The opacity of the connections is based on the distance between particles, creating an effect where particles closer together have more visible connections. The color of the connections is determined by the selected particle color from the Leva control panel.</p>
+                    <p>The particle system responds to mouse movements, and the number of particles, particle radius, and background color can be dynamically adjusted using the Leva control panel.</p>
+                    <p>This function calculates the distance between each pair of particles and draws connections if they are within a specified range. The opacity of the connections is inversely proportional to the distance, creating a visually dynamic and interactive particle web.</p>`
     }
 ]
 

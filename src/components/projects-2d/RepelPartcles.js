@@ -1,20 +1,48 @@
-import React, { useRef, useEffect } from 'react';
-import { useControls, Leva } from 'leva';
+import React, { useRef, useEffect, useState } from 'react';
+import { useControls, folder, Leva } from 'leva';
 import Animation2DArray from '../database/Animation2DArray';
 import Info from '../parts/Info';
 
 const RepelParticles = () => {
     
     const canvasRef = useRef(null);
-
+    const [isLevaCollapsed, setIsLevaCollapsed] = useState(window.innerWidth <= 400);
 
     /**
      * Leva Control Panel
      */
 
-    const { bgRepP } = useControls('Control Panel',{ 
+    const { 
+      
+      bgRepP,
+      colorOneControl,
+      numParticles, 
+      mouseRadius
+    
+    } = useControls('Control Panel',{ 
 
-      bgRepP: { value: '#000000', label: 'Background Color' },
+      Background: folder({
+      
+        bgRepP: { value: '#000000', label: 'Colour' },
+  
+      }),
+
+      Stars: folder({
+
+        Colour: folder({
+
+          colorOneControl: { label: 'One', value: '#ffffff', row: 1 },
+
+        }),
+
+        Configuration: folder ({
+
+          numParticles: { label: 'Number of', value: 1500, step: 1 },
+          mouseRadius: { label: 'Mouse Radius', value: 250, step: 1},
+
+        }),
+
+      })
 
     }) 
 
@@ -33,6 +61,12 @@ const RepelParticles = () => {
        */
 
       const handleResize = () => {
+
+        if (window.innerWidth <= 400) {
+          setIsLevaCollapsed(true);
+        } else {
+          setIsLevaCollapsed(false);
+        }
 
         canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -65,9 +99,9 @@ const RepelParticles = () => {
         for (let i = 0; i < particleArray.length; i++) {
 
           if (canvas.width < 400) {
-            mouse.radius = 100;
+            mouse.radius = (mouseRadius / 2);
           } else {
-            mouse.radius =250;
+            mouse.radius = mouseRadius;
           }
 
           particleArray[i].draw();
@@ -112,7 +146,7 @@ const RepelParticles = () => {
 
         draw() {
 
-          c.fillStyle = '#ffffff';
+          c.fillStyle = colorOneControl;
           c.beginPath();
           c.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           c.closePath();
@@ -170,7 +204,7 @@ const RepelParticles = () => {
         particleArray = [];
     
         //Creating 1500 circles using a for loop
-        for (let i = 0; i < 1500; i++){
+        for (let i = 0; i < numParticles; i++){
 
           let x = Math.random() * canvas.width;
           let y = Math.random() * canvas.height;
@@ -193,7 +227,11 @@ const RepelParticles = () => {
 
       animate();
       
-    }, []) 
+    }, [
+      colorOneControl,
+      numParticles,
+      mouseRadius,
+    ]) 
 
     
 
@@ -209,7 +247,7 @@ const RepelParticles = () => {
 
         <Info title={Animation2DArray[8].name} repoAddress={Animation2DArray[8].repo} text={Animation2DArray[8].description} />
 
-        <Leva collapsed={true}/>
+        <Leva collapsed={isLevaCollapsed}/>
 
       </div>
 

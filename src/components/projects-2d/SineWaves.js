@@ -1,10 +1,40 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Animation2DArray from '../database/Animation2DArray';
 import Info from '../parts/Info';
+import { useControls, Leva, folder } from 'leva';
+import hexToRgb from '../../utilities/hexToRGB';
 
 const SineWaves = () => {
 
     const canvasRef = useRef(null);
+    const [isLevaCollapsed, setIsLevaCollapsed] = useState(window.innerWidth <= 400);
+
+    const { 
+      
+      bgRepP, 
+      backgroundAlpha, 
+      waveLength, 
+      waveAmplitude, 
+      waveFrequency,
+     
+    } = useControls('Control Panel', { 
+
+      Background: folder({
+
+        bgRepP: { value: '#000000', label: 'Colour' },
+        backgroundAlpha: { label: 'Alpha', value: 0.15, min: 0, max: 1, step: 0.05}
+
+      }),
+
+      Wave: folder({
+
+        waveLength: { label: 'Length', value: 0.008, min: 0, max: 1, step: 0.001 },
+        waveAmplitude: { label: 'Amplitude', value: 285, min: 0, max: 500, step: 1 },
+        waveFrequency: { label: 'Frequency', value: 0.046, min: 0, max: 1, step: 0.001 },
+
+      }),
+      
+    }) 
 
     useEffect(() =>{
 
@@ -22,6 +52,12 @@ const SineWaves = () => {
 
       const handleResize = () => {
 
+        if (window.innerWidth <= 400) {
+          setIsLevaCollapsed(true);
+        } else {
+          setIsLevaCollapsed(false);
+        }
+
         canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
 
@@ -31,9 +67,9 @@ const SineWaves = () => {
       const wave = {
 
         y: canvas.height /2,
-        length: 0.008,
-        amplitude: 285,
-        frequency: 0.046,
+        length: waveLength,
+        amplitude: waveAmplitude,
+        frequency: waveFrequency,
 
       }
 
@@ -47,14 +83,7 @@ const SineWaves = () => {
       }
 
       //Background Color
-      const background = {
-
-        r:0,
-        g:0,
-        b:0,
-        a:0.15
-
-      }
+      
 
       let increment = wave.frequency
 
@@ -67,7 +96,7 @@ const SineWaves = () => {
 
         requestAnimationFrame(animate);
 
-        c.fillStyle = `rgba(${background.r}, ${background.g}, ${background.b}, ${background.a})`;
+        c.fillStyle = `rgba(${hexToRgb(bgRepP)}, ${backgroundAlpha})`;
 
         c.fillRect(0, 0, canvas.width, canvas.height);
         
@@ -100,7 +129,13 @@ const SineWaves = () => {
       
       animate();
       
-    }, []); 
+    }, [
+      bgRepP,
+      backgroundAlpha,
+      waveLength,
+      waveAmplitude,
+      waveFrequency,
+    ]); 
 
     return (
 
@@ -113,6 +148,8 @@ const SineWaves = () => {
         <canvas ref={canvasRef} ></canvas>
 
         <Info title={Animation2DArray[9].name} repoAddress={Animation2DArray[9].repo} text={Animation2DArray[9].description} />
+
+        <Leva collapsed={isLevaCollapsed}/>
 
       </div>
 
