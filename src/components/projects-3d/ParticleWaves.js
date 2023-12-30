@@ -151,7 +151,7 @@ const ParticleWaves = () => {
     <div className='project'>
 
         <div className='pageTitle'>
-          <h1 style={{color: '#ffffff'}}>{Animation3DArray[3].name}</h1>
+          <h1 style={{color: '#ffffff'}}>{Animation3DArray[4].name}</h1>
         </div>
 
         <Canvas 
@@ -166,7 +166,7 @@ const ParticleWaves = () => {
 
         <Leva collapsed={true}/>
 
-        <Info title={Animation3DArray[3].name} repoAddress={Animation3DArray[3].repo} text={Animation3DArray[3].description} />
+        <Info title={Animation3DArray[4].name} repoAddress={Animation3DArray[4].repo} text={Animation3DArray[4].description} />
 
     </div>  
 

@@ -289,7 +289,7 @@ const SpinningBall = () => {
                 textTransform: 'uppercase',
                 fontSize: `${sizeFour}vw`
                 }}>
-                    {Animation3DArray[1].name}
+                    {Animation3DArray[2].name}
             </h1>
 
             <Canvas 
@@ -316,7 +316,7 @@ const SpinningBall = () => {
 
             <Leva collapsed={true}/>
 
-            <Info title={Animation3DArray[1].name} repoAddress={Animation3DArray[1].repo} text={Animation3DArray[1].description} />
+            <Info title={Animation3DArray[2].name} repoAddress={Animation3DArray[2].repo} text={Animation3DArray[2].description} />
 
         </div>
 

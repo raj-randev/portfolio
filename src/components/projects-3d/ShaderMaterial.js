@@ -111,7 +111,7 @@ const Scene = () => {
 return (
   <div className='project'>
     <div className='pageTitle'>
-                <h1 style={{color: '#ffffff'}}>{Animation3DArray[7].name}</h1>
+                <h1 style={{color: '#ffffff'}}>{Animation3DArray[8].name}</h1>
             </div>  
     <Canvas style={{backgroundColor: bgG}}>
         <Suspense fallback={null}>
@@ -121,7 +121,7 @@ return (
     </Canvas>
     <Leva collapsed={true}/>
 
-    <Info title={Animation3DArray[7].name} repoAddress={Animation3DArray[7].repo} text={Animation3DArray[7].description} />
+    <Info title={Animation3DArray[8].name} repoAddress={Animation3DArray[8].repo} text={Animation3DArray[8].description} />
   </div>
   )
 }

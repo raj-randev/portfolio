@@ -126,7 +126,7 @@ function App() {
     <div className='project'>
 
       <div className='pageTitle'>
-        <h1 style={{color: '#ffffff'}}>{Animation3DArray[4].name}</h1>
+        <h1 style={{color: '#ffffff'}}>{Animation3DArray[5].name}</h1>
       </div>
       <Suspense fallback='Loading'>
       <Canvas className="canvas">
@@ -139,7 +139,7 @@ function App() {
       </Suspense>
       <Leva collapsed={true}/>
 
-      <Info title={Animation3DArray[4].name} repoAddress={Animation3DArray[4].repo} text={Animation3DArray[4].description} />
+      <Info title={Animation3DArray[5].name} repoAddress={Animation3DArray[5].repo} text={Animation3DArray[5].description} />
 
     </div>  
 

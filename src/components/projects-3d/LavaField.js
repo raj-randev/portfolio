@@ -222,12 +222,12 @@ const LavaField = () => {
   return (
     <div className='project' >
         <div className='pageTitle'>
-                <h1 style={{color: '#000000'}}>{Animation3DArray[8].name}</h1>
+                <h1 style={{color: '#000000'}}>{Animation3DArray[9].name}</h1>
         </div>
         <AnimationCanvas />
         <Leva collapsed={true}/>
 
-        <Info title={Animation3DArray[8].name} repoAddress={Animation3DArray[8].repo} text={Animation3DArray[8].description} />
+        <Info title={Animation3DArray[9].name} repoAddress={Animation3DArray[9].repo} text={Animation3DArray[9].description} />
     </div>
   )
 }
