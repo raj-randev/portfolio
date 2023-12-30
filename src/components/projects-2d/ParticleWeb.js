@@ -33,8 +33,8 @@ const ParticleWeb = () => {
         }),
 
         Configuration: folder({
-          numParticles: { label: 'Number', value: 170, step: 1 },
-          particleRadius: { label: 'Radius', value: 5, step: 1 },
+          numParticles: { label: 'Number', value: 75, step: 1, min: 1, max: 200, },
+          particleRadius: { label: 'Radius', value: 3, step: 1, min: 1, max: 10, },
         }),
 
       })
