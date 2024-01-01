@@ -30,6 +30,8 @@ const FoxBody = () => {
             (gltf) => {
                 setModel(gltf);
     
+                console.log('Loaded GLB:', MODEL);
+
                 // Check if the model has animations
                 if (gltf.animations && gltf.animations.length > 0) {
                     mixer.current = new THREE.AnimationMixer(gltf.scene);
