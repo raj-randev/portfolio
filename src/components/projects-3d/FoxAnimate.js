@@ -6,12 +6,12 @@ import Animation3DArray from '../database/Animation3DArray';
 import Info from '../parts/Info';
 import { Canvas } from '@react-three/fiber'; 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; 
-import MODEL from './models-3d/Fox.gltf';
+// import MODEL from './models-3d/Fox.gltf';
 import * as THREE from 'three';
 
 extend({ OrbitControls });
 
-//const MODEL = process.env.PUBLIC_URL + '/Fox.glb';
+const MODEL = process.env.PUBLIC_URL + '/models/Fox/glTF/Fox.gltf';
 
 const FoxBody = () => {
     const { foxScale, foxPositionX, foxPositionZ, animationState } = useControls('Control Panel', {
