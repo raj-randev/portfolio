@@ -26,32 +26,40 @@ const FoxBody = () => {
 
     useEffect(() => {
         const loader = new GLTFLoader();
-        loader.load(MODEL, (gltf) => {
-            setModel(gltf);
+        loader.load(MODEL, 
+            (gltf) => {
+                setModel(gltf);
     
-            // Check if the model has animations
-            if (gltf.animations && gltf.animations.length > 0) {
-                mixer.current = new THREE.AnimationMixer(gltf.scene);
+                // Check if the model has animations
+                if (gltf.animations && gltf.animations.length > 0) {
+                    mixer.current = new THREE.AnimationMixer(gltf.scene);
     
-                // Assuming animations are in the order: no movement, animation1, animation2
-                const actionDefault = mixer.current.clipAction(gltf.animations[0]);
-                const actionAnimation1 = mixer.current.clipAction(gltf.animations[1]);
-                const actionAnimation2 = mixer.current.clipAction(gltf.animations[2]);
+                    // Assuming animations are in the order: no movement, animation1, animation2
+                    const actionDefault = mixer.current.clipAction(gltf.animations[0]);
+                    const actionAnimation1 = mixer.current.clipAction(gltf.animations[1]);
+                    const actionAnimation2 = mixer.current.clipAction(gltf.animations[2]);
     
-                // Store the actions in a map for easy reference
-                const actionsMap = {
-                    default: actionDefault,
-                    animation1: actionAnimation1,
-                    animation2: actionAnimation2,
-                };
+                    // Store the actions in a map for easy reference
+                    const actionsMap = {
+                        default: actionDefault,
+                        animation1: actionAnimation1,
+                        animation2: actionAnimation2,
+                    };
     
-                // Play the default animation initially
-                actionsMap.default.play();
+                    // Play the default animation initially
+                    actionsMap.default.play();
+                }
+            },
+            (xhr) => {
+                // Loading progress callback
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            (error) => {
+                console.error('Error loading GLTF model:', error);
             }
-        }, undefined, (error) => {
-            console.error('Error loading GLTF model:', error);
-        });
+        );
     }, [setModel]);
+    
     
 
     useEffect(() => {

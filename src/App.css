@@ -168,6 +168,28 @@ a.navButton p {
   }
 }
 
+/* Scroll Panel */
+
+.scrolling-panel {
+  height: 100vh; /* Adjust as needed */
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.panel-item {
+  transition: opacity 0.5s ease-in-out;
+  margin-bottom: 20px;
+  width: 80%; /* Adjust as needed */
+}
+
+.panel-item:not(.visible) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
 /* Page Title Holder */
 .pageTitle {
   position: absolute;
